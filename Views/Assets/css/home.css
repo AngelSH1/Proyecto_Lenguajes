@@ -83,7 +83,7 @@ body {
     margin: 20px;
     width: 400px;
     text-align: center;
-    background-color: rgb(79, 80, 82);
+    background-color: rgb(124, 129, 136);
     border-style: none;
     outline: none;
     font-size: 21px;
@@ -103,7 +103,7 @@ footer{
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color:rgb(115,139,170);
+    background-color:rgb(151, 160, 173);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
     margin: 3%;
     padding: 1.5%;
