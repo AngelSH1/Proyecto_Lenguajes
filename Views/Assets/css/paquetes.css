@@ -1,4 +1,38 @@
-.main1{
-    background-color: black;
-    font-size: larger;
-}
+/* Estilos para la tabla */
+#paquetes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #paquetes-table th,
+  #paquetes-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Estilos para el encabezado de la tabla */
+  #paquetes-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+
+  #paquetes-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+
+  .main1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
