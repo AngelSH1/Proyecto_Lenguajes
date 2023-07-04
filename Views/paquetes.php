@@ -32,25 +32,13 @@ oci_close($connection);
 </head>
 <body>
     <div class="main1">
-    <h1>Información de los paquetes</h1>
-    <table id="paquetes-table">
-        <tr>
-            <th>ID_PAQUETE</th>
-            <th>TITULO_PAQUETE</th>
-            <th>DESCRIPCION</th>
-            <th>PRECIO</th>
-        </tr>
-
         <?php foreach ($results as $row): ?>
-            <tr>
-                <td><?php echo $row['ID_PAQUETE']; ?></td>
-                <td><?php echo $row['TITULO_PAQUETE']; ?></td>
-                <td><?php echo $row['DESCRIPCION']; ?></td>
-                <td><?php echo $row['PRECIO']; ?></td>
-            </tr>
+            <div class="paquete-box">
+                <h3><?php echo $row['TITULO_PAQUETE']; ?></h3>
+                <p>Precio: $<?php echo $row['PRECIO']; ?></p>
+                <a href="más_información.php?id=<?php echo $row['ID_PAQUETE']; ?>">Más información</a>
+            </div>
         <?php endforeach; ?>
-    </table>
     </div>
-    
 </body>
 </html>
