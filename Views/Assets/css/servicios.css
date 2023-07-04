@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@300&display=swap');
+
+body {
+    background-color: rgb(255, 255, 255);
+    padding: 1.5%;
+    overflow-x: hidden;
+    background-size: cover;
+    text-align: justify;
+}
+
+#carouselExampleIndicators {
+    max-width: 2000px; /* Ajusta el ancho máximo del carrusel según tus necesidades */
+    margin: 5 %; /* Centra el carrusel horizontalmente */
+  }
+  
+  .carousel-inner {
+    height: 500px; /* Ajusta la altura del carrusel según tus necesidades */
+  }
+  
+  .carousel-item img {
+    height: 800%; /* Ajusta la altura de las imágenes del carrusel según tus necesidades */
+    object-fit:scale-down; /* Ajusta la forma en que se ajusta la imagen dentro de su contenedor */
+  }
+
+.card-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-shadow-1{
+    background-color: rgb(238, 238, 238);
+    padding: 10px;
+}
+
+.bg-container {
+
+    width: 32%;
+    height: 110vh;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: -10;
+}
+
+/*----NavBar----*/
+.nav-container,
+.main-info-container,
+.data-container,
+.productos,
+.servicios {
+    display: flex;
+}
+
+.nav-container {
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.main-info-container {
+    font-size: 2rem;
+    width: 30%;
+    justify-content: space-between;
+    font-family: 'Ysabeau SC', sans-serif;
+}
+
+.nav-title {
+    text-align: center;
+    align-items: center;
+}
+
+.logo-img {
+    width: 35%;
+    height: auto;
+}
+
+.data-container {
+    font-family: 'Ysabeau SC', sans-serif;
+    font-size: 2rem;
+    align-items: right;
+    justify-content: space-between;
+    width: 60%;
+    color: azure;
+
+}
+
+.productos,
+.servicios {
+    align-items: center;
+    justify-content: space-between;
+    transition: 1s;
+    color: rgb(20, 33, 61);
+}
+
+.productos:hover,
+.servicios:hover {
+    font-size: 2.2rem;
+    transition: 1s;
+}
+
+.itemf {
+    display: flex;
+    height: 600px;
+    flex-grow: 0;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+
+.comidalabel {
+    font-size: 25px;
+    margin: 20px;
+    width: 400px;
+    text-align: center;
+    background-color: rgb(124, 129, 136);
+    border-style: none;
+    outline: none;
+    font-size: 21px;
+    color: white;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+    font-family: 'Ysabeau SC', sans-serif;
+}
+
+.cuadro {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: 160px;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(151, 160, 173);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+    margin: 3%;
+    padding: 1.5%;
+}
+
+.socials {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin: 0 auto;
+    border-radius: 100px;
+}
+
+.copy {
+    color: #000;
+}
+
+
+.imgcrr {
+    width: 70%;
+    height: auto;
+    border-radius: 50px;
+    position: relative;
+}
+
+.historia {
+    font-size: 2rem;
+    font-family: 'Ysabeau SC', sans-serif;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20%;
+}
+
+.contenedor {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Agregado */
+}
+
+.price-overlay {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    visibility: hidden;
+    border-radius: 50px;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    width: 70%;
+}
+
+.contenedor:hover .price-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
