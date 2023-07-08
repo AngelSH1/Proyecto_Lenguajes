@@ -1,22 +1,6 @@
-/* Estilos para la tabla */
-
-  h1 {
-    color: #333;
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-
-  .main1 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    border: 10px solid gold;
-    font-size: 200px;
-}
-
-.paquete-box {
-    
-    
-
+.grid-container {
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
