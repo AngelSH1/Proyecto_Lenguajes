@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>DESTINATIONS</title>
-    <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Proyecto_Lenguajes/Assets/css/index.css">
+    <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Assets/css/index.css">
 </head>
 <body class=>
     <h1>DESTINATIONS</h1>

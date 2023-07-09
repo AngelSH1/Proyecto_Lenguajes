@@ -1,12 +1,14 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>DESTINATIONS</title>
-    <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Proyecto_Lenguajes/Assets/css/index.css">
+    <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Assets/css/index.css">
 </head>
 <body class=>
     <h1>DESTINATIONS</h1>
     <div class="grid-container">
+        
         <?php if (!empty($dato)): ?>
             <?php foreach ($dato[0] as $row): ?>
                 <div class="grid-item">

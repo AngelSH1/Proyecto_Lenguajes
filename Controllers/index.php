@@ -9,5 +9,6 @@ class modeloController{
         $productos = new Modelo();
         $dato= $productos->mostrar("DESTINATIONS");
         require_once("Views/index.php");
+        require_once("Views/PaquetesAdmin.php");
     }
 }
