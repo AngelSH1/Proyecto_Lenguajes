@@ -1,5 +1,5 @@
 <?php
-require_once("Model/index.php");
+require_once("Models/index.php");
 class modeloController{
     private $model;
     function __construct(){
