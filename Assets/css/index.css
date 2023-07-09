@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@300&display=swap');
+
+body {
+    background-color:rgb(255, 255, 255);
+    padding: 1.5%;
+    overflow-x: hidden;
+    background-size: cover;
+    font-family: 'Ysabeau SC', sans-serif;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+}
+.titulito{
+    color: blue;
+}
+.buy-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
