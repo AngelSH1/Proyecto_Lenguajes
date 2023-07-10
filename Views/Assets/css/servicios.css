@@ -9,8 +9,7 @@ body {
 }
 
 #carouselExampleIndicators {
-    max-width: 2000px; /* Ajusta el ancho máximo del carrusel según tus necesidades */
-    margin: 5 %; /* Centra el carrusel horizontalmente */
+    max-width: 100%; /* Ajusta el ancho máximo del carrusel según tus necesidades */
   }
   
   .carousel-inner {
@@ -18,8 +17,8 @@ body {
   }
   
   .carousel-item img {
-    height: 800%; /* Ajusta la altura de las imágenes del carrusel según tus necesidades */
-    object-fit:scale-down; /* Ajusta la forma en que se ajusta la imagen dentro de su contenedor */
+    height: 100%; /* Ajusta la altura de las imágenes del carrusel según tus necesidades */
+    object-fit:cover; /* Ajusta la forma en que se ajusta la imagen dentro de su contenedor */
   }
 
 .card-text{
@@ -28,9 +27,10 @@ body {
     justify-content: center;
 }
 
-.card-shadow-1{
+.card-shadow-1, .card{
     background-color: rgb(238, 238, 238);
     padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .bg-container {
@@ -199,3 +199,6 @@ footer {
     opacity: 1;
 }
 
+h4, h2{
+    font-family: 'Ysabeau SC', sans-serif;
+  }

@@ -161,7 +161,7 @@ footer {
 .todo{
     padding: 20px;
     border-radius: 20px;
-    background-color: rgb(250, 245, 238);
+    background-color: rgb(247, 246, 245);
 }
 
 .grid{
@@ -176,7 +176,7 @@ footer {
 }
 
 .my-button {
-    background-color: #54b654; /* Color de fondo */
+    background-color: #549ab6; /* Color de fondo */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
     padding: 10px 20px; /* Espaciado interno */
@@ -192,7 +192,7 @@ footer {
   }
   
   .my-button:hover {
-    background-color: #2879c5; /* Color de fondo al pasar el cursor */
+    background-color: #eb2727; /* Color de fondo al pasar el cursor */
     text-decoration: none;
   }
   
@@ -210,5 +210,6 @@ footer {
   h3{
     font-family: 'Ysabeau SC', sans-serif;
   }
+
 
   

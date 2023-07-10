@@ -7,8 +7,6 @@ body {
     background-size: cover;
 }
 
-
-
 /*----NavBar----*/
 .nav-container,
 .main-info-container,
@@ -139,44 +137,8 @@ footer {
     /* Agregado */
 }
 
-.price-overlay {
-    position: absolute;
-    top: 0;
-    left: 15%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    visibility: hidden;
-    border-radius: 50px;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease;
-    width: 70%;
-}
-
-.contenedor:hover .price-overlay {
-    visibility: visible;
-    opacity: 1;
-}
-
-.todo{
-    padding: 20px;
-    border-radius: 20px;
-    background-color: rgb(250, 245, 238);
-}
-
-.grid{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    align-items:center;
-    text-align: justify;
-}
-
-.column1{
-    padding: 30px;
-}
-
 .my-button {
-    background-color: #54b654; /* Color de fondo */
+    background-color: #ffaf02; /* Color de fondo */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
     padding: 10px 20px; /* Espaciado interno */
@@ -192,7 +154,7 @@ footer {
   }
   
   .my-button:hover {
-    background-color: #2879c5; /* Color de fondo al pasar el cursor */
+    background-color: #024ff5; /* Color de fondo al pasar el cursor */
     text-decoration: none;
   }
   
@@ -201,14 +163,13 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-family: 'Ysabeau SC', sans-serif;
   }
 
   .tema__imagen{
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
   }
 
-  h3{
+  h2{
     font-family: 'Ysabeau SC', sans-serif;
   }
-
-  
