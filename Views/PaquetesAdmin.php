@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 <body class=>
     <h1>DESTINATIONS</h1>
     <div class="grid-container">
+        
         <?php if (!empty($dato)): ?>
             <?php foreach ($dato[0] as $row): ?>
                 <div class="grid-item">
@@ -17,7 +19,8 @@
                     <p><strong>Spaces:</strong> <?php echo isset($row['SPACES']) ? $row['SPACES'] : ''; ?></p>
                     <p><strong>Guide:</strong> <?php echo isset($row['GUIDE']) ? $row['GUIDE'] : ''; ?></p>
                     <p><strong>Price:</strong> <?php echo isset($row['PRICE']) ? $row['PRICE'] : ''; ?></p>
-                    <button class="buy-button">Comprar</button>
+                    <button class="buy-button">Editar</button>
+                    <button class="buy-button">Eliminar</button>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
