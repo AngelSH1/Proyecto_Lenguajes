@@ -1,0 +1,94 @@
+
+.admin-wrapper{
+    
+    display: flex;
+}
+.admin-wrapper .left-sidebar{
+    flex: 2;
+    height: 100%;
+    background-color: #234a57;
+}
+.admin-wrapper .left-sidebar ul{
+   list-style: none;
+   text-align: center;
+   margin: 0px;
+   padding: 0px;
+   text-decoration: bold;
+   color:aliceblue;
+}
+.admin-wrapper .left-sidebar ul li a{
+    text-decoration: none;
+    display: block;
+    border: 2px solid #047c85;
+    padding: 10px 20px;
+    text-align: center;
+    color:aliceblue;
+    cursor: pointer;
+    
+}
+.admin-wrapper .left-sidebar ul li a:hover{
+    background-color: #047c85;
+}
+.admin-wrapper .admin-content{
+    flex: 8;
+    height: 100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+    text-decoration: none;
+}
+.admin-content .page-title{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+}
+.admin-content .btn1{
+    text-decoration: none;
+    background-color: #234a57;
+    text-decoration: bold;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.admin-content .btn1:hover{
+    background-color: #047c85;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #d3d3d3;
+}
+th{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #d3d3d3!important;
+}
+td{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #d3d3d3!important;
+}
+.edit{
+    display: inline-block;
+    padding: 2px 5px;
+    background-color: #047c85;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.delete{
+    display: inline-block;
+    padding: 2px 5px;
+    background-color: #047c85;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.edit:hover, .delete:hover {
+    background-color: #234a57;
+  }
