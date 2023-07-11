@@ -8,7 +8,7 @@
     <h1>DESTINATIONS</h1>
     <div class="grid-container">
         <?php if (!empty($dato)): ?>
-            <?php foreach ($dato[0] as $row): ?>
+            <?php foreach ($_SESSION['dato'] as $row): ?>
                 <div class="grid-item">
                     <h2 class ="titulito"><?php echo isset($row['TITLE']) ? $row['TITLE'] : ''; ?></h2>
                     <p><strong>Description:</strong> <?php echo isset($row['DESCRIPTION']) ? $row['DESCRIPTION'] : ''; ?></p>
