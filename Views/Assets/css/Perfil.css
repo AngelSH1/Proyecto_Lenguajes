@@ -2,76 +2,51 @@
 
 
 body {
-  background-color: rgb(255, 255, 255);
-  padding: 1.5%;
-  overflow-x: hidden;
-  background-size: cover;
-  text-align: justify;
+    background: rgb(99, 39, 120)
 }
 
-form {
-    border: 3px solid #f1f1f1;
-    margin-left: 20%;
-    margin-right: 20%;
-  }
-  
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
     cursor: pointer;
-    width: 100%;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
+    border: solid 1px #BA68C8
+}
 
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-  }
-  
-  img.avatar {
-    width: 25%;
-    border-radius: 10%;
-  }
-  
-  .container {
-    padding: 16px;
-  }
-  
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-  
-  @media screen and (max-width: 300px) {
-    span.psw {
-      display: inline-block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-  }
 
-  .title {
-    font-size: 50px;
-    margin-bottom: 50px;
-  }
 
 /*----NavBar----*/
 .nav-container,

@@ -10,7 +10,7 @@ body {
 
 #carouselExampleIndicators {
     max-width: 2000px; /* Ajusta el ancho máximo del carrusel según tus necesidades */
-    margin: 5 %; /* Centra el carrusel horizontalmente */
+    margin: 5%; /* Centra el carrusel horizontalmente */
   }
   
   .carousel-inner {
