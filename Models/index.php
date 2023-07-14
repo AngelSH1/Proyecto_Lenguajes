@@ -16,4 +16,13 @@ class Modelo{
         return $this->personas;
 
     }
+    public function mostrarBlog($tabla){
+        $consul="select * from BLOG_ENTRY";
+        $resu=$this->db->query($consul);
+        $filas=$resu->fetchAll(PDO::FETCH_ASSOC);
+        $this->personas[]=$filas;
+        
+        return $this->personas;
+
+    }
 }
