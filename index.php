@@ -1,4 +1,6 @@
 <?php
-require_once("../Proyecto_Lenguajes/config.php");
-require_once("../Proyecto_Lenguajes/Controllers/index.php");
-modeloController::index();
+require_once("config.php");
+require_once("Controllers/index.php");
+
+modeloController::obtenerGuias();
+

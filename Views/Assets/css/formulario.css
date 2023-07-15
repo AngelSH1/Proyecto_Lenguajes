@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@300&display=swap');
 
 body {
@@ -5,42 +6,6 @@ body {
     padding: 1.5%;
     overflow-x: hidden;
     background-size: cover;
-    text-align: justify;
-}
-
-#carouselExampleIndicators {
-    max-width: 2000px; /* Ajusta el ancho máximo del carrusel según tus necesidades */
-    margin: 5%; /* Centra el carrusel horizontalmente */
-  }
-  
-  .carousel-inner {
-    height: 500px; /* Ajusta la altura del carrusel según tus necesidades */
-  }
-  
-  .carousel-item img {
-    height: 800%; /* Ajusta la altura de las imágenes del carrusel según tus necesidades */
-    object-fit:scale-down; /* Ajusta la forma en que se ajusta la imagen dentro de su contenedor */
-  }
-
-.card-text{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-shadow-1{
-    background-color: rgb(238, 238, 238);
-    padding: 10px;
-}
-
-.bg-container {
-
-    width: 32%;
-    height: 110vh;
-    top: 0;
-    right: 0;
-    position: absolute;
-    z-index: -10;
 }
 
 /*----NavBar----*/
@@ -56,13 +21,6 @@ body {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 3%;
-}
-
-.main-info-container {
-    font-size: 2rem;
-    width: 30%;
-    justify-content: space-between;
-    font-family: 'Ysabeau SC', sans-serif;
 }
 
 .nav-title {
@@ -180,22 +138,82 @@ footer {
     /* Agregado */
 }
 
-.price-overlay {
-    position: absolute;
-    top: 0;
-    left: 15%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    visibility: hidden;
-    border-radius: 50px;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease;
-    width: 70%;
-}
+.my-button {
+    background-color: #ffaf02; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    display: inline-block; /* Mostrar como bloque en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+    text-decoration: none !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .my-button:hover {
+    background-color: #024ff5; /* Color de fondo al pasar el cursor */
+    text-decoration: none;
+  }
+  
+  .informacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Ysabeau SC', sans-serif;
+  }
 
-.contenedor:hover .price-overlay {
-    visibility: visible;
-    opacity: 1;
-}
+  .tema__imagen{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  }
 
+  h2{
+    font-family: 'Ysabeau SC', sans-serif;
+  }
+
+  /* formulario */
+
+  .formulario {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Centra los elementos internos horizontalmente */
+  }
+  
+  .formulario label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .formulario input,
+  .formulario select,
+  .formulario textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .formulario button {
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .formulario button:hover {
+    background-color: #f70c0c;
+  }
+  

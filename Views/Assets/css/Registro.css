@@ -9,35 +9,103 @@ body {
   text-align: justify;
 }
 
-form {
-    border: 3px solid #f1f1f1;
-    margin-left: 20%;
-    margin-right: 20%;
+.signupFrm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+
+  .form {
+    background-color: white;
+    width: 1000px;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
   }
   
-  input[type=text], input[type=password] {
+  .title {
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
+  .inputContainer {
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 17px;
+  }
+
+  .input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    border: 1px solid #DADCE0;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
   }
   
-  button {
+  
+  ::placeholder {
+    color: transparent;
+  }
+
+  .label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: white;
+    color: #DADCE0;
+    font-size: 16px;
+    transition: 0.5s;
+    z-index: 0;
+  }
+
+  .submitBtn {
+    display: block;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
     background-color: #04AA6D;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    width: 100%;
+    font-size: 16px;
+    margin-top: 30px;
   }
   
-  button:hover {
+  .submitBtn:hover {
     opacity: 0.8;
+    transform: translateY(-2px);
   }
-  
+
+  .input:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: #04AA6D;
+  }
+
+  .input:focus {
+    border: 2px solid #04AA6D;
+  }
+
+  .input:not(:placeholder-shown)+ .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+  }
 
   .imgcontainer {
     text-align: center;
@@ -45,32 +113,8 @@ form {
   }
   
   img.avatar {
-    width: 25%;
+    width: 30%;
     border-radius: 10%;
-  }
-  
-  .container {
-    padding: 16px;
-  }
-  
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-  
-  @media screen and (max-width: 300px) {
-    span.psw {
-      display: inline-block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-  }
-
-  .title {
-    font-size: 50px;
-    margin-bottom: 50px;
   }
 
 /*----NavBar----*/
