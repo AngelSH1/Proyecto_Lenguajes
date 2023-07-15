@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Crear un nuevo post</title>
-  <link rel="stylesheet" type="text/css" href="../Views/Assets/css/adminblog.css">
   <title>Administracion Blog</title>
   <meta charset="UTF-8">
   <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
@@ -11,14 +10,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Views/Assets/css/servicios.css" />
+  <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
+  <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/servicios.css">
 
 </head>
 <body>
   <nav>
     <div class="nav-container">
       <div class="main-info-container">
-        <img class="logo-img" src="../Views/Assets/imgs/logo.png" alt="" />
+        <img class="logo-img" src="http://localhost/Proyecto_Lenguajes/Views/Assets/imgs/logo.png" alt="" />
       </div>
       <div class="data-container">
         <div class="servicios">
@@ -64,20 +64,18 @@
                         <th colspan="2">Accion</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Post de ejemplo</td>
-                            <td>Angel</td>
-                            <td><a href="#" class="edit">Editar</a></td>
-                            <td><a href="#" class="delete">Eliminar</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Post de ejemplo</td>
-                            <td>Angel</td>
-                            <td><a href="#" class="edit">Editar</a></td>
-                            <td><a href="#" class="delete">Eliminar</a></td>
-                        </tr>
+                        <?php foreach ($datoblog as $key => $value)
+                            foreach($value as $v):?>
+                                <tr>
+                                    <td><?php echo $v['ID_BLOG']?></td>
+                                    <td><?php echo $v['TITLE']?></td>
+                                    <td><?php echo $v['ID_USER']?></td>
+                                    <td>
+                                        <a class ="edit" href="/index.php?m=editar&id=<?php echo $v['ID_BLOG']?>">EDITAR</a>
+                                        <a class ="delete" href="/index.php?m=eliminar&id=<?php echo $v['ID_BLOG']?>">ELIMINAR</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                     </tbody>
                 </table>
              </div>

@@ -1,2 +1,2 @@
 <?php
-define("urlsite","http://localhost/php/");
+define("urlsite","http://localhost/proyecto_Lenguajes/");
