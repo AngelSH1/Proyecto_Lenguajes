@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Agregar Nuevo Destination</h1>
-    <form action="guardar_destino.php" method="POST" enctype="multipart/form-data">
+    <form action="" method="get" enctype="multipart/form-data">
         <label for="title">Título:</label>
         <input type="text" id="title" name="title" required><br><br>
 
@@ -39,10 +39,6 @@
 
         <label for="price">Precio:</label>
         <input type="number" id="price" name="price" required><br><br>
-
-        <label for="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
-
         <div class="button-container">
             <button onclick="window.history.back();" type="button">Regresar</button>
             <input type="submit" value="Guardar">

@@ -1,4 +1,8 @@
 
+<?php
+//include_once("../index.php");
+//modeloController::index2();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +10,9 @@
     <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Assets/css/index.css">
 </head>
 <body class=>
-    <h1>DESTINATIONS<br><button class="agregar" onclick="window.location.href = 'Views/AgregarDestino.php';">Agregar Nuevo</button></h1>
+    <h1>DESTINATIONS<br><button class="agregar" href ="Views/AgregarDestino.php?m=nuevo">Agregar Nuevo</button></h1>
     <div class="grid-container">
-        <?php 
-        var_dump($datosGuias);if (!empty($dato)): ?>
+        <?php if (!empty($dato)): ?>
             <?php foreach ($dato[0] as $row): ?>
                 <div class="grid-item">
                     <h2 class ="titulito"><?php echo isset($row['TITLE']) ? $row['TITLE'] : ''; ?></h2>
