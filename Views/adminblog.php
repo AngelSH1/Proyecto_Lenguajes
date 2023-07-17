@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Crear un nuevo post</title>
   <title>Administracion Blog</title>
   <meta charset="UTF-8">
   <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
@@ -10,14 +9,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
-  <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/servicios.css">
+  <link rel="stylesheet" href="http://localhost:85/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
+  <link rel="stylesheet" href="http://localhost:85/Proyecto_Lenguajes/Views/Assets/css/servicios.css">
+  <link rel="stylesheet" href="http://localhost:/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
+  <link rel="stylesheet" href="http://localhost:/Proyecto_Lenguajes/Views/Assets/css/servicios.css">
+
 
 </head>
 <body>
   <nav>
     <div class="nav-container">
       <div class="main-info-container">
+      <img class="logo-img" src="http://localhost:85/Proyecto_Lenguajes/Views/Assets/imgs/logo.png" alt="" />
         <img class="logo-img" src="http://localhost/Proyecto_Lenguajes/Views/Assets/imgs/logo.png" alt="" />
       </div>
       <div class="data-container">

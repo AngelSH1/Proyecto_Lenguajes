@@ -8,6 +8,7 @@ class Modelo{
         $this-> Modelo=array();
         $this-> db = new PDO('oci:dbname=//localhost:1521/orcl;charset=UTF8', "ADMIN", "ADMIN");
     }
+    
     public function mostrar($tabla){
         $consul="select * from V_DESTINATIONS";
         $resu=$this->db->query($consul);
@@ -29,7 +30,7 @@ class Modelo{
 
 
     public function buscarGuias($tabla) {
-        $consul = "select * from V_GUIAS";
+        $consul = "select * from GUIDES";
         $resu = $this->db->query($consul);
         $filas = $resu->fetchAll(PDO::FETCH_ASSOC);
         $this->guias[] = $filas;        
