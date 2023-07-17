@@ -26,8 +26,6 @@ class Modelo{
         return $this->personas;
 
     }
-
-
     public function buscarGuias($tabla) {
         $consul = "select * from GUIDES";
         $resu = $this->db->query($consul);
@@ -38,14 +36,21 @@ class Modelo{
 
     public function insertar($tabla, $data) {
         $columnas = implode(', ', array_keys($data));
-        $valores = implode(', ', array_values($data));
-    
+        $valores = ':' . implode(', :', array_keys($data));
+        
         $consulta = "INSERT INTO $tabla ($columnas) VALUES ($valores)";
-        $resultado = $this->db->query($consulta);
+        $consulta= 'commit';
+        $stmt = $this->db->prepare($consulta);
     
-        if ($resultado) {
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(':' . $key, $value);
+        }
+    
+        try {
+            $stmt->execute();
             return true;
-        } else {
+        } catch (PDOException $e) {
+            echo "Error al guardar los datos: " . $e->getMessage();
             return false;
         }
     }
