@@ -59,16 +59,17 @@ table{
     width: 100%;
     border-collapse: collapse;
     font-size: 1.1rem;
+    
     border-bottom: 2px solid #d3d3d3;
 }
 th{
     padding: 15px;
-    text-align: left;
+    text-align: center;
     border-bottom: 2px solid #d3d3d3!important;
 }
 td{
     padding: 15px;
-    text-align: left;
+    text-align: center;
     border-bottom: 2px solid #d3d3d3!important;
 }
 .edit{
@@ -79,6 +80,7 @@ td{
     text-decoration: none;
     border: none;
     cursor: pointer;
+    margin-right: 12px;
 }
 .delete{
     display: inline-block;

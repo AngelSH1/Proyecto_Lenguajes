@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Crear un nuevo post</title>
-  <link rel="stylesheet" type="text/css" href="../Views/Assets/css/post.css">
   <meta charset="UTF-8">
   <title>Crear Post</title>
   <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
@@ -12,7 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Views/Assets/css/servicios.css" />
+    <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/post.css">
+  <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/servicios.css">
 
 </head>
 <body>
@@ -61,20 +61,21 @@
         <h1>Crear nuevo post</h1>
         <form>
           <label for="titulo">Título:</label>
-          <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título del post" required>
+          <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título del post" required> <br>
 
           <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Ingrese el mensaje del post" required></textarea>
+          <textarea id="mensaje" name="mensaje" placeholder="Ingrese el mensaje del post" required></textarea><br>
 
           <label for="imagen">Imagen:</label>
-          <label for="imagen" class="custom-file-upload my-custom-class">Seleccionar imagen</label>
+          <label for="imagen" class="custom-file-upload my-custom-class">Seleccionar imagen</label><br>
           <input type="file" id="imagen" name="imagen">
 
 
           <label for="lugar">Destino:</label>
-          <input type="text" id="lugar" name="lugar" placeholder="Ingrese el lugar" required>
+          <input type="text" id="lugar" name="lugar" placeholder="Ingrese el lugar" required><br>
 
-          <input type="submit" id="btnpublicar" value="Publicar">
+          <input type="submit" id="btnpublicar" name="btnpublicar" value="Guardar"><br>
+          <input type="hidden" name="m" value="guardar">
         </form>
       </div>
     </div>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Crear un nuevo post</title>
   <title>Administracion Blog</title>
   <meta charset="UTF-8">
   <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
@@ -48,8 +47,8 @@
         <!-- izquierda-->
         <div class="left-sidebar">
             <ul>
-                <li><a href="../Views/blog.html">Ver Blog</a></li>
-                <li><a href="../Views/post.html">Crear Post</a></li>
+                <li><a href="http://localhost/Proyecto_Lenguajes/Views/blog.html">Ver Blog</a></li>
+                <li><a href="indexblog.php?m=nuevo">Crear Post</a></li>
             </ul>
         </div>
         <!-- derecha-->
@@ -71,7 +70,7 @@
                                     <td><?php echo $v['TITLE']?></td>
                                     <td><?php echo $v['ID_USER']?></td>
                                     <td>
-                                        <a class ="edit" href="/index.php?m=editar&id=<?php echo $v['ID_BLOG']?>">EDITAR</a>
+                                        <a class ="edit" href="/index.php?m=editar&id=<?php echo $v['ID_BLOG']?>"> EDITAR </a>
                                         <a class ="delete" href="/index.php?m=eliminar&id=<?php echo $v['ID_BLOG']?>">ELIMINAR</a>
                                     </td>
                                 </tr>
