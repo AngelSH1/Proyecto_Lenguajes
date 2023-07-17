@@ -1,3 +1,7 @@
+<?php 
+    include_once "../Controllers/usuarioController.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,34 +52,37 @@
     </div>
   </nav>
   <div class="signupFrm">
-    <form action="" class="form">
+
+      <form role="form" class="text-start" action="" method="post">
       <h1 class="title">Registro</h1>
 
       <div class="imgcontainer">
         <img src="../Views/Assets/imgs/img_avatar3.png" alt="Avatar" class="avatar">
       </div>
 
-      <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Email</label>
+      <div class="form-outline mb-4">
+        <input id="txtNombre" name="txtNombre" type="text" class="form-control form-control-lg" placeholder="Nombre" required/>
       </div>
 
-      <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Usuario</label>
+      <div class="form-outline mb-4">
+        <input id="txtApellido" name="txtApellido" type="text" class="form-control form-control-lg" placeholder="Apellido" required />
       </div>
 
-      <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Contraseña</label>
+      <div class="form-outline mb-4">
+        <input id="txtCorreo" name="txtCorreo" type="email" class="form-control form-control-lg" placeholder="Correo Electrónico" required />
       </div>
 
-      <div class="inputContainer">
-        <input type="text" class="input" placeholder="a">
-        <label for="" class="label">Confirmar Contraseña</label>
+      <div class="form-outline mb-4">
+        <input id="txtTelefono" name="txtTelefono" type="text" class="form-control form-control-lg" placeholder="Teléfono" required />
       </div>
 
-      <input type="submit" class="submitBtn" value="Sign up">
+      <div class="form-outline mb-4">
+        <input id="txtContrasenna" name="txtContrasenna" type="password"  class="form-control form-control-lg" placeholder="Contraseña" required/>
+      </div>
+
+      <div class="pt-1 mb-4">
+        <button id="btnRegistro" name="btnRegistro" type="submit" class="btn btn-dark btn-lg btn-block">Registrarse</button>
+      </div>
       
       <p class="mt-4 text-sm text-center">
         ¿Ya tienes una cuenta?
@@ -83,7 +90,6 @@
       </p>
     </form>
   </div>
-
 
     <footer>
         <script src="../Views/Assets/js/home.js"></script>
