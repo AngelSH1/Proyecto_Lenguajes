@@ -1,6 +1,9 @@
+<?php 
+    include_once "../Controllers/formulariocontroller.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,9 +53,12 @@
   </div>
   <br>
 
-  <form action="/enviar-formulario" method="POST" class="formulario">
+  <form action="" method="POST" class="formulario">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required>
+
+    <label for="nombre">ID:</label>
+    <input type="text" id="ID_USER_SOLICITUD" name="ID_USER_SOLICITUD" required>
   
     <label for="correo">Correo electrónico:</label>
     <input type="email" id="correo" name="correo" required>
@@ -71,7 +77,7 @@
     <label for="mensaje">Mensaje adicional:</label>
     <textarea id="mensaje" name="mensaje" rows="4"></textarea>
   
-    <button type="submit">Enviar</button>
+    <button id="btnRegistro" name="btnRegistro" type="submit">Enviar</button>
   </form>
   
   <footer>
