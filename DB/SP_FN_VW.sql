@@ -1,3 +1,5 @@
+SET SERVEROUTPUT ON;
+
 -------------------------------------------------------------------------------------------------------VISTAS---------------------------------------------------------------------------------------------------------------------------
 --CREAR USUARIO ADMINISTRADOR
 ALTER SESSION SET "_ORACLE_SCRIPT"= TRUE;
@@ -129,19 +131,13 @@ BEGIN
     RETURN total_registered_users;
 END;
 -------------------------------------------------------------------------------------------------------PROCEDIMIENTOS ALMACENADOS----------------------------------------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE INSERT_USER(
-    P_NAME VARCHAR2,
-    P_LAST_NAME VARCHAR2,
-    P_EMAIL VARCHAR2,
-    P_PHONE VARCHAR2,
-    P_ROL NUMBER,
-    P_PASSWORD VARCHAR2,
-    P_STATUS NUMBER
-) AS
-BEGIN
-    INSERT INTO USERS (NAME, LAST_NAME, EMAIL, PHONE, ROL, PASSWORD, STATUS)
-    VALUES (P_NAME, P_LAST_NAME, P_EMAIL, P_PHONE, P_ROL, P_PASSWORD, P_STATUS);
-    COMMIT;
+
+CREATE OR REPLACE PROCEDURE RegistrarUsuario (pNombre in VARCHAR2,pApellido IN  VARCHAR2, pCorreo IN VARCHAR2, pTelefono IN  VARCHAR2, pContrasenna IN  VARCHAR2)
+as BEGIN
+
+INSERT INTO USERS(NAME, LAST_NAME, EMAIL, PHONE, ROL, PASSWORD, STATUS)
+VALUES (pNombre, pApellido, pCorreo, pTelefono,1, pContrasenna,1);
+
 END;
 /
 
@@ -239,8 +235,122 @@ BEGIN
     WHERE PRICE BETWEEN P_MIN_PRICE AND P_MAX_PRICE;
 END;
 
+CREATE OR REPLACE PROCEDURE RegistrarFormulario (pID_USER_SOLICITUD in NUMBER, pFULLNAME IN  VARCHAR2, pEMAIL IN VARCHAR2, pPHONE IN  VARCHAR2, pSERVICIO in VARCHAR2, pMENSAJE in VARCHAR2)
+as BEGIN
+
+INSERT INTO SOLICITUD(ID_USER_SOLICITUD, FULLNAME, EMAIL, PHONE, SERVICIO, MENSAJE)
+VALUES (pID_USER_SOLICITUD, pFULLNAME, pEMAIL, pPHONE, pSERVICIO, pMENSAJE);
+
+END;
 
 -------------------------------------------------------------------------------------------------------CURSORES---------------------------------------------------------------------------------------------------------------------------
+--users
+
+DECLARE
+  CURSOR cur_usuarios IS
+    SELECT id_user, name,last_name, email
+    FROM USERS;
+  v_id_usuario users.id_user%TYPE;
+  v_nombre users.name%TYPE;
+  v_apellido users.last_name%TYPE;
+  v_correo_electronico users.email%TYPE;
+BEGIN
+  OPEN cur_usuarios;
+  LOOP
+    FETCH cur_usuarios INTO v_id_usuario, v_nombre, v_apellido, v_correo_electronico;
+    EXIT WHEN cur_usuarios%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('ID Usuario: ' || v_id_usuario || ', Nombre: ' || v_nombre || ', Apellido: ' || v_apellido || ', Correo electrónico: ' || v_correo_electronico);
+  END LOOP;
+  CLOSE cur_usuarios;
+END;
+
+--destinations
+
+DECLARE
+  CURSOR cur_destinations IS
+    SELECT id_destination, title, description
+    FROM destinations;
+  v_id_destination destinations.id_destination%TYPE;
+  v_destination_name destinations.title%TYPE;
+  v_description destinations.description%TYPE;
+BEGIN
+  OPEN cur_destinations;
+  LOOP
+    FETCH cur_destinations INTO v_id_destination, v_destination_name, v_description;
+    EXIT WHEN cur_destinations%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('Destination ID: ' || v_id_destination || ', Name: ' || v_destination_name || ', Description: ' || v_description);
+  END LOOP;
+  CLOSE cur_destinations;
+END;
+
+--guides
+
+DECLARE
+  CURSOR cur_guides IS
+    SELECT id_guide, name, last_name, experience
+    FROM guides;
+  v_id_guide guides.id_guide%TYPE;
+  v_guide_name guides.name%TYPE;
+  v_last_name guides.last_name%TYPE;
+  v_experience guides.experience%TYPE;
+BEGIN
+  OPEN cur_guides;
+  LOOP
+    FETCH cur_guides INTO v_id_guide, v_guide_name, v_last_name, v_experience;
+    EXIT WHEN cur_guides%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('Guide ID: ' || v_id_guide || ', Name: ' || v_guide_name || ', Location: ' || v_last_name || ', Specialty: ' || v_experience);
+  END LOOP;
+  CLOSE cur_guides;
+END;
+
+--services
+
+DECLARE
+  CURSOR cur_services IS
+    SELECT id_services, title, description, cost
+    FROM services;
+  v_service_id services.id_services%TYPE;
+  v_service_name services.title%TYPE;
+  v_description services.description%TYPE;
+  v_price services.cost%TYPE;
+BEGIN
+  OPEN cur_services;
+  LOOP
+    FETCH cur_services INTO v_service_id, v_service_name, v_description, v_price;
+    EXIT WHEN cur_services%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('Service ID: ' || v_service_id || ', Name: ' || v_service_name || ', Description: ' || v_description || ', cost: ' || v_price);
+  END LOOP;
+  CLOSE cur_services;
+END;
+
+
+--TRIP
+
+DECLARE
+  CURSOR cur_trip IS
+    SELECT t.id_trip, d.title, d.start_date, d.end_date, t.id_user, u.name, u.email, t.buy_date
+    FROM trip t
+    JOIN destinations d ON t.id_destination = d.id_destination
+    JOIN users u ON t.id_user = u.id_user;
+  v_trip_id trip.id_trip%TYPE;
+  v_destinations_name destinations.title%TYPE;
+  v_destinations_date destinations.start_date%TYPE;
+  v_destinations_end destinations.end_date%TYPE;
+  v_trip_id_user trip.id_user%TYPE;
+  v_user_name users.name%TYPE;
+  v_email users.email%TYPE;
+  v_trip_buy_Date trip.buy_date%TYPE;
+BEGIN
+  OPEN cur_trip;
+  LOOP
+    FETCH cur_trip INTO v_trip_id, v_destinations_name, v_destinations_date, v_destinations_end, v_trip_id_user, v_user_name, v_email, v_trip_buy_Date;
+    EXIT WHEN cur_trip%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('Trip ID: ' || v_trip_id || ', Trip Name: ' || v_destinations_name || ', Trip Start Date: ' || v_destinations_date ||
+    ', Trip End Date: ' || v_destinations_end || ', ID de Usuario: ' || v_trip_id_user || ', User Name: ' || v_user_name || ', Email: ' 
+    || v_email || ', Buy date: ' || v_trip_buy_Date);
+  END LOOP;
+  CLOSE cur_trip;
+END;
 
 -------------------------------------------------------------------------------------------------------PAQUETES---------------------------------------------------------------------------------------------------------------------------
 
