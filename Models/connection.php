@@ -1,9 +1,9 @@
 <DOCTYPE HTML>
-<meta charset = "utf8" />
+<meta charset = "utf-8" />
 <?php
     function OpenBD()
     {
-        return $conexion = oci_connect("ADMIN", "ADMIN", "localhost/orcl"); 
+        return $conexion = oci_connect("ADMIN", "ADMIN", "localhost/orcl", "AL32UTF8");
     }
 
     function CloseBD($enlace)

@@ -1,3 +1,9 @@
+<?php
+include_once("../Controllers/controlblog.php");
+include_once("../Models/index.php");
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +12,6 @@
   <title>Crear Post</title>
   <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -50,7 +54,7 @@
     <div class="left-sidebar">
         <ul>
             <li><a href="../Views/blog.html">Ver Blog</a></li>
-            <li><a href="../Views/adminblog.html">Administrar Post</a></li>
+            <li><a href="../Views/adminblog.php">Administrar Post</a></li>
         </ul>
     </div>
   
@@ -59,7 +63,7 @@
     <div class= "content">
         <div class="post-form-container"></div>
         <h1>Crear nuevo post</h1>
-        <form>
+        <form action="prueba.php" method="post">
           <label for="titulo">Título:</label>
           <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título del post" required> <br>
 

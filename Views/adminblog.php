@@ -1,3 +1,11 @@
+<?php
+include_once("../Controllers/controlblog.php");
+include_once("../Models/index.php");
+
+$pblog = new modeloControllerblog();
+$datoblog = $pblog->blog();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +13,6 @@
   <meta charset="UTF-8">
   <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -20,7 +27,7 @@
   <nav>
     <div class="nav-container">
       <div class="main-info-container">
-      <img class="logo-img" src="http://localhost:85/Proyecto_Lenguajes/Views/Assets/imgs/logo.png" alt="" />
+      <!-- <img class="logo-img" src="http://localhost:85/Proyecto_Lenguajes/Views/Assets/imgs/logo.png" alt="" /> -->
         <img class="logo-img" src="http://localhost/Proyecto_Lenguajes/Views/Assets/imgs/logo.png" alt="" />
       </div>
       <div class="data-container">
@@ -52,7 +59,7 @@
         <div class="left-sidebar">
             <ul>
                 <li><a href="http://localhost/Proyecto_Lenguajes/Views/blog.html">Ver Blog</a></li>
-                <li><a href="indexblog.php?m=nuevo">Crear Post</a></li>
+                <li><a href="../Views/post.php">Crear Post</a></li>
             </ul>
         </div>
         <!-- derecha-->
@@ -67,18 +74,17 @@
                         <th colspan="2">Accion</th>
                     </thead>
                     <tbody>
-                        <?php foreach ($datoblog as $key => $value)
-                            foreach($value as $v):?>
-                                <tr>
-                                    <td><?php echo $v['ID_BLOG']?></td>
-                                    <td><?php echo $v['TITLE']?></td>
-                                    <td><?php echo $v['ID_USER']?></td>
-                                    <td>
-                                        <a class ="edit" href="/index.php?m=editar&id=<?php echo $v['ID_BLOG']?>"> EDITAR </a>
-                                        <a class ="delete" href="/index.php?m=eliminar&id=<?php echo $v['ID_BLOG']?>">ELIMINAR</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
+                    <?php foreach ($datoblog as $key => $value) : ?>
+                        <tr>
+                            <td><?php echo $value['ID_BLOG']; ?></td>
+                            <td><?php echo $value['TITLE']; ?></td>
+                            <td><?php echo $value['ID_USER']; ?></td>
+                            <td>
+                                <a class="edit" href="/index.php?m=editar&id=<?php echo $value['ID_BLOG']; ?>">EDITAR</a>
+                                <a class="delete" href="/index.php?m=eliminar&id=<?php echo $value['ID_BLOG']; ?>">ELIMINAR</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
              </div>
