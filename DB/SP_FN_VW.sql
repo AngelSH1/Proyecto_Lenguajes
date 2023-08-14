@@ -242,6 +242,43 @@ INSERT INTO SOLICITUD(ID_USER_SOLICITUD, FULLNAME, EMAIL, PHONE, SERVICIO, MENSA
 VALUES (pID_USER_SOLICITUD, pFULLNAME, pEMAIL, pPHONE, pSERVICIO, pMENSAJE);
 
 END;
+-----procedure de insertar en blog
+CREATE OR REPLACE PROCEDURE INSERT_BLOG_ENTRY (
+    p_title VARCHAR2,
+    p_description VARCHAR2,
+    p_id_user NUMBER,
+    p_id_destination NUMBER,
+    p_image1 BLOB,
+    p_image2 BLOB,
+    p_image3 BLOB,
+    p_image4 BLOB
+) AS
+BEGIN
+    INSERT INTO BLOG_ENTRY (TITLE, DESCRIPTION, ID_USER, ID_DESTINATION, IMAGE1, IMAGE2, IMAGE3, IMAGE4)
+    VALUES (p_title, p_description, p_id_user, p_id_destination, p_image1, p_image2, p_image3, p_image4);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE VER_BLOG(
+    p_cursor OUT SYS_REFCURSOR
+) AS
+BEGIN
+    OPEN p_cursor FOR
+    SELECT * FROM BLOG_ENTRY;
+END;
+
+CREATE OR REPLACE PROCEDURE VER_BLOG_PRINCIPAL(
+    p_cursor OUT SYS_REFCURSOR
+) AS
+BEGIN
+    OPEN p_cursor FOR
+    SELECT B.TITLE, B.DESCRIPTION, D.TITLE AS DESTINATION_TITLE
+    FROM BLOG_ENTRY B
+    INNER JOIN DESTINATIONS D ON B.ID_DESTINATION = D.ID_DESTINATION;
+END;
+
+
+
 
 -------------------------------------------------------------------------------------------------------CURSORES---------------------------------------------------------------------------------------------------------------------------
 --users
@@ -599,4 +636,27 @@ WHERE ID_USER = 24;
 
 SELECT * FROM USERS;
 SELECT * FROM AUDITORIA_USERS;
+
+-----procedure de blog
+CREATE OR REPLACE PROCEDURE INSERTAR_POST(
+    p_titulo IN VARCHAR2,
+    p_mensaje IN VARCHAR2,
+    p_iduser IN NUMBER,
+    p_lugar IN VARCHAR2,
+    p_img IN BLOB
+) AS
+BEGIN
+    INSERT INTO BLOG_ENTRY (TITLE, DESCRIPTION, ID_USER, ID_DESTINATION, IMAGE1)
+    VALUES (p_titulo, p_mensaje, p_iduser, p_lugar, p_img);
+    COMMIT;
+END;
+
+
+
+
+
+
+
+
+
 

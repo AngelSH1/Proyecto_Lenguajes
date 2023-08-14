@@ -79,8 +79,44 @@ body {
 
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+}
+h1 {
+    text-align: center;
+}
+.titulito{
+    color: blue;
+    
 
+}
+.grid-item {
+    border: 1px solid #047c85;
+    padding: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.entry-title {
+    font-weight: bold;
+    color: #333;
+}
 
+.entry-description {
+    font-style:normal;
+    color: #000838;
+}
+
+.entry-destination {
+    color: rgb(80, 4, 105);
+    text-decoration: underline;
+}
 
 
 
@@ -142,6 +178,7 @@ body {
     align-items: center;
     position: relative;
     z-index: 1;
+    margin-bottom: 40px;
 }
 
 .container-info-cover h1{

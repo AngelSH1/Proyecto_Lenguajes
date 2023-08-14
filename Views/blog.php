@@ -1,3 +1,19 @@
+<?php
+include_once("../Controllers/controlblog.php");
+include_once("../Models/index.php");
+
+$pblog = new modeloControllerblog();
+$datoblog = $pblog->blogprincipal();
+
+//foreach ($datoblog as $entry) {
+   //echo "Título: " . $entry['TITLE'] . "<br>";
+    //echo "Descripción: " . $entry['DESCRIPTION']->load() . "<br>";
+    //echo "Destino: " . $entry['DESTINATION_TITLE'] . "<br><br>";
+//}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,49 +79,18 @@
         </div>
     </div>
 
-    <div class="container-content">
-        <article>
-
-            <h1>Titulo del articulo</h1>
-
-            <p>Aqui puede ir un articulo creado basado en la experiencia de los dueños viajando</p>
-
-            <p>segundo parrafo </p>
-
-                <h1>Subtitulo del articulo</h1>
-
-                <p>otro espacio para blog </p>
-
-                <img src="img/img2.jpg" alt="">
-
-                <p> otro parrafo</p>
-
-            </article>
-
-        <div class="container-aside">	
-
-            <aside>
-                <img src="img/img6.jpg" alt="">
-                <h2>Titulo del articulo</h2>
-                <p>articulo relacionado!</p>
-                <a href="#"><button>leer más</button></a>
-            </aside>
-
-            <aside>
-                <img src="img/img1.jpg" alt="">
-                <h2>Titulo del articulo</h2>
-                <p>algun articulo relacionado </p>
-                
-            </aside>
-
-            <aside>
-                <img src="img/img4.jpg" alt="">
-                <h2>Titulo del articulo</h2>
-                <p>algun otro parrafo</p>
-                <a href="#"><button>leer más</button></a>
-            </aside>
-
-        </div>
+    <div class="grid-container">
+      <?php if (!empty($pblog)): ?>
+          <?php foreach ($datoblog as $entry): ?>
+              <div class="grid-item">
+                  <div class="entry-title"><?php echo "Título: " . $entry['TITLE'] . "<br>";?></div>
+                  <div class="entry-description"><?php echo "Descripción: " . $entry['DESCRIPTION']->load() . "<br>";?></div>
+                  <div class="entry-destination"><?php echo "Destino: " . $entry['DESTINATION_TITLE'] . "<br><br>";?></div>
+              </div>
+          <?php endforeach; ?>
+      <?php else: ?>
+          <div class="grid-item" style="grid-column: 1 / -1;">No blogs found</div>
+      <?php endif; ?>
     </div>
 
     <div class="container-footer">	
