@@ -31,7 +31,7 @@ class Modelo{
 
     public function mostrarBlog() {
         $conn = OpenBD();
-        $sql = "BEGIN VER_BLOG(:result); END;";
+        $sql = "BEGIN PAQUETE_BLOG.VER_BLOG(:result); END;";
         $stmt = oci_parse($conn, $sql);
         $result = oci_new_cursor($conn);
         oci_bind_by_name($stmt, ":result", $result, -1, OCI_B_CURSOR);
