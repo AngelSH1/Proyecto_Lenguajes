@@ -31,7 +31,7 @@ class Modelo{
 
     public function mostrarBlog() {
         $conn = OpenBD();
-        $sql = "BEGIN VER_BLOG(:result); END;";
+        $sql = "BEGIN PAQUETE_BLOG.VER_BLOG(:result); END;";
         $stmt = oci_parse($conn, $sql);
         $result = oci_new_cursor($conn);
         oci_bind_by_name($stmt, ":result", $result, -1, OCI_B_CURSOR);
@@ -48,7 +48,7 @@ class Modelo{
     }
     public function mostrarBlogPrincipal() {
         $conn = OpenBD();
-        $sql = "BEGIN VER_BLOG_PRINCIPAL(:result); END;";
+        $sql = "BEGIN PAQUETE_BLOG.VER_BLOG_PRINCIPAL(:result); END;";
         $stmt = oci_parse($conn, $sql);
         $result = oci_new_cursor($conn);
         oci_bind_by_name($stmt, ":result", $result, -1, OCI_B_CURSOR);
@@ -107,7 +107,7 @@ class Modelo{
     }
     public function guardarPost($titulo, $mensaje, $iduser, $lugar, $img) {
         $conn = OpenBD();
-        $sql = "BEGIN INSERTAR_POST(:p_titulo, :p_mensaje, :p_iduser, :p_lugar, :p_img); END;";
+        $sql = "BEGIN PAQUETE_BLOG.INSERTAR_POST(:p_titulo, :p_mensaje, :p_iduser, :p_lugar, :p_img); END;";
         $stmt = oci_parse($conn, $sql);
         oci_bind_by_name($stmt, ":p_titulo", $titulo);
         oci_bind_by_name($stmt, ":p_mensaje", $mensaje);

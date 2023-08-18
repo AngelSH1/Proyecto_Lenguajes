@@ -258,7 +258,7 @@ BEGIN
     VALUES (p_title, p_description, p_id_user, p_id_destination, p_image1, p_image2, p_image3, p_image4);
     COMMIT;
 END;
-
+-----procedure para ver todo el blog
 CREATE OR REPLACE PROCEDURE VER_BLOG(
     p_cursor OUT SYS_REFCURSOR
 ) AS
@@ -266,7 +266,7 @@ BEGIN
     OPEN p_cursor FOR
     SELECT * FROM BLOG_ENTRY;
 END;
-
+----procesure para ver la info de blog con la pk de destination
 CREATE OR REPLACE PROCEDURE VER_BLOG_PRINCIPAL(
     p_cursor OUT SYS_REFCURSOR
 ) AS
