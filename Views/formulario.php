@@ -15,8 +15,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="../Views/Assets/css/formulario.css" />
-
-</head>
+ </head>
 
 <body>
   <nav>
@@ -91,6 +90,7 @@
     </div>
     <p class="copy">Derechos reservados joshua33657@gmail.com 2023</p>
   </footer>
+
 </body>
 
 </html>
