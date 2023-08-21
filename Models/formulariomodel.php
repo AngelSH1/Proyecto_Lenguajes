@@ -23,4 +23,13 @@
     }
     }
 
+    function mostrarSolicitud(){
+        try {
+            $enlace = openBD();
+            $query = oci_parse($enlace, 'BEGIN PAQUETE_FORMULARIO.')
+        } catch (exception $th) {
+            return false;
+        }
+    }
+
     ?>
