@@ -1,17 +1,17 @@
 <?php
-require_once("../Models/index.php");
+require_once("../Models/blogmodel.php");
 class modeloControllerblog{
     private $model;
     function __construct(){
-        $this-> model = new Modelo();
+        $this-> model = new Modeloblog();
     }
     static function blog(){
-        $pblog = new Modelo();
+        $pblog = new Modeloblog();
         $datoblog = $pblog->mostrarBlog();
         return $datoblog;
     }
     static function blogprincipal(){
-        $pblog = new Modelo();
+        $pblog = new Modeloblog();
         $datoblog = $pblog->mostrarBlogPrincipal();
         return $datoblog;
     }
@@ -25,8 +25,18 @@ class modeloControllerblog{
         $iduser = 1;
         $lugar = $_REQUEST['lugar'];
         $img = "EMPTY_BLOB()";
-        $pblog = new Modelo();
+        $pblog = new Modeloblog();
         $exito = $pblog->guardarPost($titulo, $mensaje, $iduser, $lugar, $img);
+        if ($exito) {
+            header("Location: http://localhost/proyecto_Lenguajes/Views/adminblog.php");
+            exit(); 
+        } else {
+            echo($exito);
+        }
+    }
+    public function eliminar($id) {
+        $modelo = new Modeloblog();
+        $exito = $modelo->eliminarBlog($id);
         if ($exito) {
             header("Location: http://localhost/proyecto_Lenguajes/Views/adminblog.php");
             exit(); 

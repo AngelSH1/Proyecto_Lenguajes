@@ -1,6 +1,5 @@
 <?php
 include_once("../Controllers/controlblog.php");
-include_once("../Models/index.php");
 include_once "layout.php";
 
 $pblog = new modeloControllerblog();
@@ -45,8 +44,8 @@ $datoblog = $pblog->blog();
                             <td><?php echo $value['TITLE']; ?></td>
                             <td><?php echo $value['ID_USER']; ?></td>
                             <td>
-                                <a class="edit" href="/index.php?m=editar&id=<?php echo $value['ID_BLOG']; ?>">EDITAR</a>
-                                <a class="delete" href="/index.php?m=eliminar&id=<?php echo $value['ID_BLOG']; ?>">ELIMINAR</a>
+                                <a class="edit" href="prueba.php?m=editar&id=<?php echo $value['ID_BLOG']; ?>">EDITAR</a>
+                                <a class="delete" href="prueba.php?m=eliminar&id=<?php echo $value['ID_BLOG']; ?>">ELIMINAR</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
