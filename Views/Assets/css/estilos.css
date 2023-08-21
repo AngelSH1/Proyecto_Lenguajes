@@ -17,67 +17,7 @@ body {
     text-align: justify;
 }
 
-/*----NavBar----*/
-.nav-container,
-.main-info-container,
-.data-container,
-.productos,
-.servicios {
-    display: flex;
-}
-.nav-container {
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 3%;
-}
 
-.main-info-container {
-    font-size: 2rem;
-    width: 30%;
-    justify-content: space-between;
-    font-family: 'Ysabeau SC', sans-serif;
-}
-
-.nav-title {
-    text-align: center;
-    align-items: center;
-}
-
-.logo-img {
-    width: 35%;
-    height: auto;
-}
-
-.data-container {
-    font-family: 'Ysabeau SC', sans-serif;
-    font-size: 2rem;
-    align-items: right;
-    justify-content: space-between;
-    width: 60%;
-    color: azure;
-
-}
-.productos,
-.servicios {
-    align-items: center;
-    justify-content: space-between;
-    transition: 1s;
-    color: rgb(20, 33, 61);
-}
-
-.productos:hover,
-.servicios:hover {
-    font-size: 2.2rem;
-    transition: 1s;
-}
-.itemf {
-    display: flex;
-    height: 600px;
-    flex-grow: 0;
-    justify-content: space-around;
-    flex-direction: column;
-
-}
 
 .grid-container {
     display: grid;
