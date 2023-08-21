@@ -15,4 +15,9 @@
         $MENSAJE = $_POST["mensaje"];
 
         $respuesta = RegistrarFormulario($ID_USER_SOLICITUD, $FULLNAME, $EMAIL, $PHONE, $SERVICIO, $MENSAJE);
+
+        if($respuesta == true)
+        {
+            header("location: ../Views/home.html");
+        }
     }
