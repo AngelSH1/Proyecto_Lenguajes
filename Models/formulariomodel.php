@@ -26,9 +26,9 @@
     function mostrarSolicitud(){
         try {
             $enlace = openBD();
-            $query = oci_parse($enlace, 'BEGIN PAQUETE_FORMULARIO.')
-        } catch (exception $th) {
-            return false;
+            $query = oci_parse($enlace, 'BEGIN PAQUETE_FORMULARIO.');
+        } catch (PDOException $e) {
+            return null;
         }
     }
 
