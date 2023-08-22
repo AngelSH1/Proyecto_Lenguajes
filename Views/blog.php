@@ -3,8 +3,6 @@ include_once("../Controllers/controlblog.php");
 include_once "layout.php";
 $pblog = new modeloControllerblog();
 $datoblog = $pblog->blogprincipal();
-
-
 ?>
 
 

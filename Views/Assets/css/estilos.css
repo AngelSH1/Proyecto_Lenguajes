@@ -42,6 +42,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 10px;
 }
 .entry-title {
     font-weight: bold;
@@ -52,11 +53,13 @@ h1 {
 .entry-description {
     font-style:normal;
     color: #000838;
+    margin-top: 10px;
 }
 
 .entry-destination {
     color: rgb(80, 4, 105);
     text-decoration: underline;
+    margin-top: 10px;
 }
 
 

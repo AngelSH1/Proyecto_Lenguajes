@@ -20,7 +20,9 @@ include_once "layout.php";
     <div class="left-sidebar">
         <ul>
             <li><a href="../Views/blog.php">Ver Blog</a></li>
-            <li><a href="../Views/adminblog.php">Administrar Post</a></li>
+            <li><a href="../Views/adminblog.php">Administrar Blog</a></li>
+            <li><a href="../Views/destinos.php">Ver Destinos</a></li>
+            <li><a href="../Views/admindestinos.php">Administrar Destinos</a></li>
         </ul>
     </div>
   
@@ -50,5 +52,11 @@ include_once "layout.php";
       </div>
     </div>
   </div>
+  <footer>
+    <?php
+    MostrarFooter();
+
+    ?>
+      </footer>
   </body>
 </html>

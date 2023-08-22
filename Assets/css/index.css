@@ -1,18 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@300&display=swap');
 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    
+}
 body {
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     padding: 1.5%;
     overflow-x: hidden;
     background-size: cover;
-    font-family: 'Ysabeau SC', sans-serif;
+    text-align: justify;
 }
-
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    margin-top: 40px;
 }
 
 
@@ -22,11 +31,20 @@ h1 {
 }
 .titulito{
     color: blue;
-    
+}
+.agregar-button {
+    background-color: #047c85;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.botonNueno {
 
+    margin-top: 40px;
 }
 .grid-item {
-    border: 1px solid black;
+    border: 1px solid #047c85;
     padding: 10px;
     overflow: hidden;
     word-wrap: break-word;
@@ -34,7 +52,50 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 10px;
 }
+.entry-title {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+.entry-description {
+    font-style:normal;
+    color: #000838;
+    margin-top: 10px;
+}
+.entry-startdate {
+    font-style:normal;
+    color: #000838;
+    margin-top: 10px;
+}
+.entry-enddate {
+    font-style:normal;
+    color: #000838;
+    margin-top: 10px;
+}
+.entry-spaces {
+    font-style:normal;
+    color: #000838;
+    margin-top: 10px;
+}
+.entry-guide {
+    font-style:normal;
+    color: #000838;
+    margin-top: 10px;
+}
+.entry-price {
+    font-style:normal;
+    color: #000838;
+    margin-top: 10px;
+}
+.entry-destination {
+    color: rgb(80, 4, 105);
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
 .buy-button {
     background-color: #4CAF50;
     width: 100px;
