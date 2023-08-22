@@ -862,21 +862,20 @@ CREATE OR REPLACE PACKAGE PAQUETE_BLOG AS
     -- Procedure para modificar una entrada en el blog por su ID
     PROCEDURE MODIFICAR_BLOG_ENTRY (
         id NUMBER,
-        title VARCHAR2,
-        description VARCHAR2,
-        id_user NUMBER,
-        id_destination NUMBER,
-        image1 BLOB,
-        image2 BLOB,
-        image3 BLOB,
-        image4 BLOB
+        titlenuevo VARCHAR2,
+        descriptionNuevo VARCHAR2,
+        id_destinationNuevo NUMBER
     );
 
     -- Procedure para eliminar una entrada del blog por su ID
     PROCEDURE DELETE_BLOG_ENTRY (
         id NUMBER
     );
-    
+    -- Procedure para eliminar una entrada del blog por su ID
+    PROCEDURE VER_BLOG_ENTRY_ID (
+            p_id_blog IN NUMBER,
+            p_cursor OUT SYS_REFCURSOR
+    );    
     -- Procedure para ver todo el blog
     PROCEDURE VER_BLOG(
         p_cursor OUT SYS_REFCURSOR
@@ -907,19 +906,13 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_BLOG AS
     -- Procedure para modificar una entrada en el blog por su ID
     PROCEDURE MODIFICAR_BLOG_ENTRY (
         id NUMBER,
-        title VARCHAR2,
-        description VARCHAR2,
-        id_user NUMBER,
-        id_destination NUMBER,
-        image1 BLOB,
-        image2 BLOB,
-        image3 BLOB,
-        image4 BLOB
+        titlenuevo VARCHAR2,
+        descriptionNuevo VARCHAR2,
+        id_destinationNuevo NUMBER
     ) AS
     BEGIN
         UPDATE BLOG_ENTRY
-        SET TITLE = title, DESCRIPTION = description, ID_USER = id_user, ID_DESTINATION = id_destination,
-            IMAGE1 = image1, IMAGE2 = image2, IMAGE3 = image3, IMAGE4 = image4
+        SET TITLE = titlenuevo, DESCRIPTION = descriptionNuevo, ID_DESTINATION = id_destinationNuevo
         WHERE ID_BLOG = id;
         COMMIT;
     END MODIFICAR_BLOG_ENTRY;
@@ -933,7 +926,15 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_BLOG AS
         WHERE ID_BLOG = id;
         COMMIT;
     END DELETE_BLOG_ENTRY;
-    
+    ----PROCEDURE PARA VER LOS BLOG POR ID
+     PROCEDURE VER_BLOG_ENTRY_ID(
+        p_id_blog IN NUMBER,
+        p_cursor OUT SYS_REFCURSOR
+        ) AS
+        BEGIN
+                OPEN p_cursor FOR
+                SELECT * FROM BLOG_ENTRY WHERE ID_BLOG = p_id_blog;
+        END VER_BLOG_ENTRY_ID;
     -- Procedure para ver todo el blog
     PROCEDURE VER_BLOG(
         p_cursor OUT SYS_REFCURSOR

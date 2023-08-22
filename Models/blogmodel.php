@@ -73,6 +73,41 @@ class Modeloblog{
         CloseBD($conn);
     }
     
+    public function obtenerPostPorID($id) {
+        $conn = OpenBD();
+        $sql = "BEGIN PAQUETE_BLOG.VER_BLOG_ENTRY_ID(:id, :result); END;";
+        $stmt = oci_parse($conn, $sql);
+        oci_bind_by_name($stmt, ":id", $id);
+        $result = oci_new_cursor($conn);
+        oci_bind_by_name($stmt, ":result", $result, -1, OCI_B_CURSOR);
+        oci_execute($stmt);
+        oci_execute($result);
+
+        $post = oci_fetch_assoc($result);
+        oci_free_statement($stmt);
+        oci_free_statement($result);
+        CloseBD($conn);
+
+        return $post;
+    }
+    public function actualizarPost($id, $titulo, $mensaje, $destino) {
+        $conn = OpenBD();
+        $sql = "BEGIN PAQUETE_BLOG.MODIFICAR_BLOG_ENTRY(:p_id, :p_titulo, :p_mensaje, :p_destino); END;";
+        $stmt = oci_parse($conn, $sql);
+        oci_bind_by_name($stmt, ":p_id", $id);
+        oci_bind_by_name($stmt, ":p_titulo", $titulo);
+        oci_bind_by_name($stmt, ":p_mensaje", $mensaje);
+        oci_bind_by_name($stmt, ":p_destino", $destino);
+        
+        try {
+            $result = oci_execute($stmt);
+            CloseBD($conn);
+        } catch (SQLException $e) {
+            echo "Error al actualizar los datos: " . $e->getMessage();
+        }
+        return $result;
+    }
+    
 
     
 

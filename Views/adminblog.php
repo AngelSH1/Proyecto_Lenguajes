@@ -44,7 +44,7 @@ $datoblog = $pblog->blog();
                             <td><?php echo $value['TITLE']; ?></td>
                             <td><?php echo $value['ID_USER']; ?></td>
                             <td>
-                                <a class="edit" href="prueba.php?m=editar&id=<?php echo $value['ID_BLOG']; ?>">EDITAR</a>
+                                <a class="edit" href="editarpost.php?id=editar&id=<?php echo $value['ID_BLOG']; ?>">EDITAR</a>
                                 <a class="delete" href="prueba.php?m=eliminar&id=<?php echo $value['ID_BLOG']; ?>">ELIMINAR</a>
                             </td>
                         </tr>

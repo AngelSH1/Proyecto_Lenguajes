@@ -46,6 +46,7 @@ h1 {
 .entry-title {
     font-weight: bold;
     color: #333;
+    text-align: right;
 }
 
 .entry-description {

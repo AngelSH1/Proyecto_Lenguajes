@@ -4,11 +4,7 @@ include_once "layout.php";
 $pblog = new modeloControllerblog();
 $datoblog = $pblog->blogprincipal();
 
-//foreach ($datoblog as $entry) {
-   //echo "Título: " . $entry['TITLE'] . "<br>";
-    //echo "Descripción: " . $entry['DESCRIPTION']->load() . "<br>";
-    //echo "Destino: " . $entry['DESTINATION_TITLE'] . "<br><br>";
-//}
+
 ?>
 
 
@@ -44,13 +40,13 @@ $datoblog = $pblog->blogprincipal();
       <?php if (!empty($pblog)): ?>
           <?php foreach ($datoblog as $entry): ?>
               <div class="grid-item">
-                  <div class="entry-title"><?php echo "Título: " . $entry['TITLE'] . "<br>";?></div>
+                  <div class="entry-title"><?php echo "" . $entry['TITLE'] . "<br>";?></div>
                   <div class="entry-description"><?php echo "Descripción: " . $entry['DESCRIPTION']->load() . "<br>";?></div>
                   <div class="entry-destination"><?php echo "Destino: " . $entry['DESTINATION_TITLE'] . "<br><br>";?></div>
               </div>
           <?php endforeach; ?>
       <?php else: ?>
-          <div class="grid-item" style="grid-column: 1 / -1;">No blogs found</div>
+          <div class="grid-item" style="grid-column: 1 / -1;">No Hay blogs</div>
       <?php endif; ?>
     </div>
 

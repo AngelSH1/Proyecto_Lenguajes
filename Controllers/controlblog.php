@@ -36,13 +36,14 @@ class modeloControllerblog{
     }
     public function eliminar($id) {
         $modelo = new Modeloblog();
-        $exito = $modelo->eliminarBlog($id);
-        if ($exito) {
-            header("Location: http://localhost/proyecto_Lenguajes/Views/adminblog.php");
-            exit(); 
-        } else {
-            echo($exito);
-        }
+        $modelo->eliminarBlog($id);
     }
-    
+    public function obtenerPostPorID($id) {
+        $modelo = new Modeloblog();
+        return $modelo->obtenerPostPorID($id);
+    }
+    public function actualizarPost($id, $titulo, $mensaje, $destino) {
+        $modelo = new Modeloblog();
+        $modelo->actualizarPost($id, $titulo, $mensaje, $destino);
+    }
 }
