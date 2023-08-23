@@ -9,7 +9,7 @@ $datoblog = $pblog->destinosprincipal();
 <head>
 <title>DESTINATIONS</title>
 <?php MostrarHead(); ?>
-    <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Assets/css/index.css">
+    <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/adminDestino.css">
 </head>
 <?php 
 
