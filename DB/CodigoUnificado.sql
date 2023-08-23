@@ -54,7 +54,7 @@ INNER JOIN DESTINATIONS D ON B.ID_DESTINATION = D.ID_DESTINATION;
 
 --VISTA PARA MOSTAR LOS GUIAS Y LOS IDIOMAS HABLADOS
 CREATE VIEW VIEW_GUIDES_WITH_LANGUAGES AS
-SELECT G.ID_GUIDE, G.NAME || ' ' || G.LAST_NAME AS GUIDE_NAME, G.EXPERIENCE || ' AÃ±os de experiencia' AS EXPERIENCIA, LISTAGG(I.DESCRIPTION, ', ') WITHIN GROUP (ORDER BY I.DESCRIPTION) AS LANGUAGES
+SELECT G.ID_GUIDE, G.NAME || ' ' || G.LAST_NAME AS GUIDE_NAME, G.EXPERIENCE || ' AÃƒÂ±os de experiencia' AS EXPERIENCIA, LISTAGG(I.DESCRIPTION, ', ') WITHIN GROUP (ORDER BY I.DESCRIPTION) AS LANGUAGES
 FROM GUIDES G
 INNER JOIN IDIOMASXGUIDE IG ON G.ID_GUIDE = IG.ID_GUIDE
 INNER JOIN IDIOMAS I ON IG.ID_IDIOMAS = I.ID_IDIOMAS
@@ -217,7 +217,7 @@ CREATE OR REPLACE PROCEDURE FILTER_DESTINATIONS_BY_PRICE(
     P_MIN_PRICE NUMBER,
     P_MAX_PRICE NUMBER
 ) AS
-    -- Declarar un cursor explÃ­cito con el nombre DESTINATION_PRICE
+    -- Declarar un cursor explÃƒÂ­cito con el nombre DESTINATION_PRICE
     CURSOR DESTINATION_PRICE IS
         SELECT *
         FROM DESTINATIONS
@@ -248,7 +248,7 @@ CREATE OR REPLACE PROCEDURE FILTER_DESTINATIONS_BY_DATE(
     P_START_DATE DATE,
     P_END_DATE DATE
 ) AS
-    -- Declarar un cursor explÃ­cito
+    -- Declarar un cursor explÃƒÂ­cito
     CURSOR destination_cursor IS
         SELECT *
         FROM DESTINATIONS
@@ -273,7 +273,7 @@ END;
 CREATE OR REPLACE PROCEDURE FILTER_DESTINATIONS_BY_SPACES(
     P_MIN_SPACES NUMBER
 ) AS
-    -- Declarar un cursor explÃ­cito con el nombre DESTINATION_SPACES
+    -- Declarar un cursor explÃƒÂ­cito con el nombre DESTINATION_SPACES
     CURSOR DESTINATION_SPACES IS
         SELECT *
         FROM DESTINATIONS
@@ -348,7 +348,7 @@ BEGIN
   LOOP
     FETCH cur_usuarios INTO v_id_usuario, v_nombre, v_apellido, v_correo_electronico;
     EXIT WHEN cur_usuarios%NOTFOUND;
-    DBMS_OUTPUT.PUT_LINE('ID Usuario: ' || v_id_usuario || ', Nombre: ' || v_nombre || ', Apellido: ' || v_apellido || ', Correo electrï¿½nico: ' || v_correo_electronico);
+    DBMS_OUTPUT.PUT_LINE('ID Usuario: ' || v_id_usuario || ', Nombre: ' || v_nombre || ', Apellido: ' || v_apellido || ', Correo electrÃ¯Â¿Â½nico: ' || v_correo_electronico);
   END LOOP;
   CLOSE cur_usuarios;
 END;
@@ -875,7 +875,7 @@ CREATE OR REPLACE PACKAGE PAQUETE_BLOG AS
     PROCEDURE DELETE_BLOG_ENTRY (
         id NUMBER
     );
-    -- Procedure para eliminar una entrada del blog por su ID
+    -- Procedure para ver del blog por su ID
     PROCEDURE VER_BLOG_ENTRY_ID (
             p_id_blog IN NUMBER,
             p_cursor OUT SYS_REFCURSOR
@@ -1154,96 +1154,105 @@ END PAQUETE_SERVICIOS;
 
 ---PAQUETE DESTINATIONS ***************************************************************************
 CREATE OR REPLACE PACKAGE PAQUETE_DESTINATIONS AS
-    -- Procedure para insertar una destinaciï¿½n
+    -- Procedure para insertar una destinaciÃ¯Â¿Â½n
     PROCEDURE INSERTAR_DESTINATION (
-        title VARCHAR2,
-        description CLOB,
-        start_date DATE,
-        end_date DATE,
-        spaces NUMBER,
-        guide NUMBER,
-        price NUMBER,
-        imagen BLOB
+        titlenuevo VARCHAR2,
+        descriptionnuevo CLOB,
+        start_datenuevo DATE,
+        end_datenuevo DATE,
+        spacesnuevo NUMBER,
+        guidenuevo NUMBER,
+        pricenuevo NUMBER,
+        imagennuevo BLOB
     );
     
-    -- Procedure para modificar una destinaciï¿½n por su ID
+    -- Procedure para modificar una destinaciÃ¯Â¿Â½n por su ID
     PROCEDURE MODIFICAR_DESTINATION (
-        id_destination NUMBER,
-        title VARCHAR2,
-        description CLOB,
-        start_date DATE,
-        end_date DATE,
-        spaces NUMBER,
-        guide NUMBER,
-        price NUMBER,
-        imagen BLOB
+        id_d NUMBER,
+        titlenuevo VARCHAR2,
+        descriptionnuevo CLOB,
+        start_datenuevo DATE,
+        end_datenuevo DATE,
+        spacesnuevo NUMBER,
+        guidenuevo NUMBER,
+        pricenuevo NUMBER
     );
 
-    -- Procedure para eliminar una destinaciï¿½n por su ID
+    -- Procedure para eliminar una destinaciÃ¯Â¿Â½n por su ID
     PROCEDURE ELIMINAR_DESTINATION (
-        id_destination NUMBER
+        id_d  NUMBER
     );
-    
+    -- Procedure para ver del destinos por su ID
+    PROCEDURE VER_DESTINO_ID (
+            p_id_destino IN NUMBER,
+            p_cursor OUT SYS_REFCURSOR
+    );     
     -- Procedure para ver todas las destinaciones
     PROCEDURE VER_TODOS_DESTINATIONS (
         p_cursor OUT SYS_REFCURSOR
     );
-        -- Procedure para ver la info de una destinaciï¿½n con EL GUIA
+        -- Procedure para ver la info de una destinaciÃ¯Â¿Â½n con EL GUIA
     PROCEDURE VER_DESTINATION_GUIDE (
-        id_destination NUMBER,
         p_cursor OUT SYS_REFCURSOR
     );
 END PAQUETE_DESTINATIONS;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_DESTINATIONS AS
-    -- Procedure para insertar una destinaciï¿½n
+    -- Procedure para insertar una destinaciÃ¯Â¿Â½n
     PROCEDURE INSERTAR_DESTINATION (
-        title VARCHAR2,
-        description CLOB,
-        start_date DATE,
-        end_date DATE,
-        spaces NUMBER,
-        guide NUMBER,
-        price NUMBER,
-        imagen BLOB
+        titlenuevo VARCHAR2,
+        descriptionnuevo CLOB,
+        start_datenuevo DATE,
+        end_datenuevo DATE,
+        spacesnuevo NUMBER,
+        guidenuevo NUMBER,
+        pricenuevo NUMBER,
+        imagennuevo BLOB
     ) AS
     BEGIN
         INSERT INTO DESTINATIONS (TITLE, DESCRIPTION, START_DATE, END_DATE, SPACES, GUIDE, PRICE, IMAGEN)
-        VALUES (title, description, start_date, end_date, spaces, guide, price, imagen);
+        VALUES (titlenuevo, descriptionnuevo, start_datenuevo, end_datenuevo, spacesnuevo, guidenuevo, pricenuevo, imagennuevo);
         COMMIT;
     END INSERTAR_DESTINATION;
     
-    -- Procedure para modificar una destinaciï¿½n por su ID
+    -- Procedure para modificar una destinaciÃ¯Â¿Â½n por su ID
     PROCEDURE MODIFICAR_DESTINATION (
-        id_destination NUMBER,
-        title VARCHAR2,
-        description CLOB,
-        start_date DATE,
-        end_date DATE,
-        spaces NUMBER,
-        guide NUMBER,
-        price NUMBER,
-        imagen BLOB
+        id_d NUMBER,
+        titlenuevo VARCHAR2,
+        descriptionnuevo CLOB,
+        start_datenuevo DATE,
+        end_datenuevo DATE,
+        spacesnuevo NUMBER,
+        guidenuevo NUMBER,
+        pricenuevo NUMBER
     ) AS
     BEGIN
         UPDATE DESTINATIONS
-        SET TITLE = title, DESCRIPTION = description, START_DATE = start_date, END_DATE = end_date,
-            SPACES = spaces, GUIDE = guide, PRICE = price, IMAGEN = imagen
-        WHERE ID_DESTINATION = id_destination;
+        SET TITLE = titlenuevo, DESCRIPTION = descriptionnuevo, START_DATE = start_datenuevo, END_DATE = end_datenuevo,
+            SPACES = spacesnuevo, GUIDE = guidenuevo, PRICE = pricenuevo
+        WHERE ID_DESTINATION = id_d;
         COMMIT;
     END MODIFICAR_DESTINATION;
     
-    -- Procedure para eliminar una destinaciï¿½n por su ID
+    -- Procedure para eliminar una destinaciÃ¯Â¿Â½n por su ID
     PROCEDURE ELIMINAR_DESTINATION (
-        id_destination NUMBER
+        id_d NUMBER
     ) AS
     BEGIN
         DELETE FROM DESTINATIONS
-        WHERE ID_DESTINATION = id_destination;
+        WHERE ID_DESTINATION = id_d ;
         COMMIT;
     END ELIMINAR_DESTINATION;
-    
+    ----PROCEDURE PARA VER LOS BLOG POR ID
+     PROCEDURE VER_DESTINO_ID(
+        p_id_destino IN NUMBER,
+        p_cursor OUT SYS_REFCURSOR
+        ) AS
+        BEGIN
+                OPEN p_cursor FOR
+                SELECT * FROM DESTINATIONS WHERE ID_DESTINATION = p_id_destino;
+        END VER_DESTINO_ID;
     -- Procedure para ver todas las destinaciones
     PROCEDURE VER_TODOS_DESTINATIONS (
         p_cursor OUT SYS_REFCURSOR
@@ -1252,17 +1261,15 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_DESTINATIONS AS
         OPEN p_cursor FOR
         SELECT * FROM DESTINATIONS;
     END VER_TODOS_DESTINATIONS;
-    -- Procedure para ver la info de una destinaciï¿½n con la guï¿½a
+    -- Procedure para ver la info de una destinaciÃ¯Â¿Â½n con la guÃ¯Â¿Â½a
     PROCEDURE VER_DESTINATION_GUIDE (
-        id_destination NUMBER,
         p_cursor OUT SYS_REFCURSOR
     ) AS
     BEGIN
         OPEN p_cursor FOR
-        SELECT D.TITLE, D.DESCRIPTION, G.NAME AS GUIDE_NAME
-        FROM DESTINATIONS D
-        INNER JOIN GUIDES G ON D.GUIDE = G.ID_GUIDE
-        WHERE D.ID_DESTINATION = id_destination;
+            SELECT D.TITLE, D.DESCRIPTION, D.START_DATE, D.END_DATE, D.SPACES, G.NAME || ' ' ||G.LAST_NAME AS NOMBREGUIA, PRICE 
+            FROM DESTINATIONS D
+            INNER  JOIN GUIDES G ON D.GUIDE = G.ID_GUIDE;
     END VER_DESTINATION_GUIDE;
 END PAQUETE_DESTINATIONS;
 
@@ -1365,23 +1372,23 @@ END PAQUETE_TRIP;
 
 ---PAQUETE DE FUNCIONES 1 ***************************************************************************
 CREATE OR REPLACE PACKAGE PAQUETE_FUNCIONES_1 AS
-    -- Funciï¿½n para obtener el nombre completo de un usuario
+    -- FunciÃ¯Â¿Â½n para obtener el nombre completo de un usuario
     FUNCTION NOMBRE_COMPLETO_USUARIO(id_user NUMBER) RETURN VARCHAR2;
     
-    -- Funciï¿½n para calcular el total de costos de todos los servicios
+    -- FunciÃ¯Â¿Â½n para calcular el total de costos de todos los servicios
     FUNCTION CALCULAR_TOTAL_COSTOS_SERVICIOS RETURN NUMBER;
     
-    -- Funciï¿½n para obtener la cantidad de espacios disponibles en una destinaciï¿½n
+    -- FunciÃ¯Â¿Â½n para obtener la cantidad de espacios disponibles en una destinaciÃ¯Â¿Â½n
     FUNCTION ESPACIOS_DISPONIBLES(id_destination NUMBER) RETURN NUMBER;
     
-    -- Funciï¿½n para obtener la cantidad de viajes realizados por un usuario
+    -- FunciÃ¯Â¿Â½n para obtener la cantidad de viajes realizados por un usuario
     FUNCTION CANTIDAD_VIAJES_USUARIO(id_user NUMBER) RETURN NUMBER;
     
 END PAQUETE_FUNCIONES_1;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_1 AS
-    -- Funciï¿½n para obtener el nombre completo de un usuario
+    -- FunciÃ¯Â¿Â½n para obtener el nombre completo de un usuario
     FUNCTION NOMBRE_COMPLETO_USUARIO(id_user NUMBER) RETURN VARCHAR2 AS
         nombre_completo VARCHAR2(100);
     BEGIN
@@ -1391,7 +1398,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_1 AS
         RETURN nombre_completo;
     END NOMBRE_COMPLETO_USUARIO;
     
-    -- Funciï¿½n para calcular el total de costos de todos los servicios
+    -- FunciÃ¯Â¿Â½n para calcular el total de costos de todos los servicios
     FUNCTION CALCULAR_TOTAL_COSTOS_SERVICIOS RETURN NUMBER AS
         costo_total NUMBER := 0;
     BEGIN
@@ -1400,7 +1407,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_1 AS
         RETURN costo_total;
     END CALCULAR_TOTAL_COSTOS_SERVICIOS;
     
-    -- Funciï¿½n para obtener la cantidad de espacios disponibles en una destinaciï¿½n
+    -- FunciÃ¯Â¿Â½n para obtener la cantidad de espacios disponibles en una destinaciÃ¯Â¿Â½n
     FUNCTION ESPACIOS_DISPONIBLES(id_destination NUMBER) RETURN NUMBER AS
         espacios_disponibles NUMBER := 0;
     BEGIN
@@ -1410,7 +1417,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_1 AS
         RETURN espacios_disponibles;
     END ESPACIOS_DISPONIBLES;
     
-    -- Funciï¿½n para obtener la cantidad de viajes realizados por un usuario
+    -- FunciÃ¯Â¿Â½n para obtener la cantidad de viajes realizados por un usuario
     FUNCTION CANTIDAD_VIAJES_USUARIO(id_user NUMBER) RETURN NUMBER AS
         contador_viajes NUMBER := 0;
     BEGIN
@@ -1424,26 +1431,26 @@ END PAQUETE_FUNCIONES_1;
 
 ---PAQUETE DE FUNCIONES 2 ***************************************************************************
 CREATE OR REPLACE PACKAGE PAQUETE_FUNCIONES_2 AS
-    -- Funciï¿½n para obtener el estado de un usuario
+    -- FunciÃ¯Â¿Â½n para obtener el estado de un usuario
     FUNCTION ESTADO_USUARIO(id_user NUMBER) RETURN VARCHAR2;
     
-    -- Funciï¿½n para obtener la descripciï¿½n de un rol
+    -- FunciÃ¯Â¿Â½n para obtener la descripciÃ¯Â¿Â½n de un rol
     FUNCTION DESCRIPCION_ROL(id_rol NUMBER) RETURN VARCHAR2;
     
-    -- Funciï¿½n para obtener el costo promedio de los servicios
+    -- FunciÃ¯Â¿Â½n para obtener el costo promedio de los servicios
     FUNCTION COSTO_PROMEDIO_SERVICIOS RETURN NUMBER;
     
-    -- Funciï¿½n para verificar si una destinaciï¿½n tiene espacios disponibles
+    -- FunciÃ¯Â¿Â½n para verificar si una destinaciÃ¯Â¿Â½n tiene espacios disponibles
     FUNCTION ESPACIOS_DISPONIBLES(id_destination NUMBER) RETURN BOOLEAN;
     
-    -- Funciï¿½n para obtener la cantidad de reseï¿½as de un usuario
-    FUNCTION CANTIDAD_RESEï¿½AS_POR_USUARIO(id_user NUMBER) RETURN NUMBER;
+    -- FunciÃ¯Â¿Â½n para obtener la cantidad de reseÃ¯Â¿Â½as de un usuario
+    FUNCTION CANTIDAD_RESEÃ¯Â¿Â½AS_POR_USUARIO(id_user NUMBER) RETURN NUMBER;
     
 END PAQUETE_FUNCIONES_2;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_2 AS
-    -- Funciï¿½n para obtener el estado de un usuario
+    -- FunciÃ¯Â¿Â½n para obtener el estado de un usuario
     FUNCTION ESTADO_USUARIO(id_user NUMBER) RETURN VARCHAR2 AS
         descripcion_estado VARCHAR2(50);
     BEGIN
@@ -1453,7 +1460,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_2 AS
         RETURN descripcion_estado;
     END ESTADO_USUARIO;
     
-    -- Funciï¿½n para obtener la descripciï¿½n de un rol
+    -- FunciÃ¯Â¿Â½n para obtener la descripciÃ¯Â¿Â½n de un rol
     FUNCTION DESCRIPCION_ROL(id_rol NUMBER) RETURN VARCHAR2 AS
         rol_description VARCHAR2(50);
     BEGIN
@@ -1463,7 +1470,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_2 AS
         RETURN rol_description;
     END DESCRIPCION_ROL;
     
-    -- Funciï¿½n para obtener el costo promedio de los servicios
+    -- FunciÃ¯Â¿Â½n para obtener el costo promedio de los servicios
     FUNCTION COSTO_PROMEDIO_SERVICIOS RETURN NUMBER AS
         costo_prom NUMBER;
     BEGIN
@@ -1472,7 +1479,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_2 AS
         RETURN costo_prom;
     END COSTO_PROMEDIO_SERVICIOS;
     
-    -- Funciï¿½n para verificar si una destinaciï¿½n tiene espacios disponibles
+    -- FunciÃ¯Â¿Â½n para verificar si una destinaciÃ¯Â¿Â½n tiene espacios disponibles
     FUNCTION ESPACIOS_DISPONIBLES(id_destination NUMBER) RETURN BOOLEAN AS
         espacios_disponibles NUMBER;
     BEGIN
@@ -1482,15 +1489,15 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_FUNCIONES_2 AS
         RETURN espacios_disponibles > 0;
     END ESPACIOS_DISPONIBLES;
     
-    -- Funciï¿½n para obtener la cantidad de reseï¿½as de un usuario
-    FUNCTION CANTIDAD_RESEï¿½AS_POR_USUARIO(id_user NUMBER) RETURN NUMBER AS
-        contador_reseï¿½as NUMBER;
+    -- FunciÃ¯Â¿Â½n para obtener la cantidad de reseÃ¯Â¿Â½as de un usuario
+    FUNCTION CANTIDAD_RESEÃ¯Â¿Â½AS_POR_USUARIO(id_user NUMBER) RETURN NUMBER AS
+        contador_reseÃ¯Â¿Â½as NUMBER;
     BEGIN
-        SELECT COUNT(*) INTO contador_reseï¿½as
+        SELECT COUNT(*) INTO contador_reseÃ¯Â¿Â½as
         FROM REVIEW
         WHERE ID_USER = id_user;
-        RETURN contador_reseï¿½as;
-    END CANTIDAD_RESEï¿½AS_POR_USUARIO;
+        RETURN contador_reseÃ¯Â¿Â½as;
+    END CANTIDAD_RESEÃ¯Â¿Â½AS_POR_USUARIO;
     
 END PAQUETE_FUNCIONES_2;
 
@@ -1502,22 +1509,22 @@ CREATE OR REPLACE PACKAGE PAQUETE_CURSORES AS
     -- Tipo de cursor para servicios
     TYPE cursor_servicio IS REF CURSOR;
     
-    -- Procedimiento para mostrar todos los usuarios usando un cursor explï¿½cito
+    -- Procedimiento para mostrar todos los usuarios usando un cursor explÃ¯Â¿Â½cito
     PROCEDURE CURSOR_USUARIOS(p_cursor OUT cursor_usuario);
     
     -- Procedimiento para mostrar todos los servicios con costo menor a un valor
     PROCEDURE CURSOR_SERVICIO_COSTO_ID(cost_limit NUMBER, p_cursor OUT cursor_servicio);
     
-    -- Procedimiento para mostrar los usuarios que tienen un estado especï¿½fico
+    -- Procedimiento para mostrar los usuarios que tienen un estado especÃ¯Â¿Â½fico
     PROCEDURE CURSOR_STATUS_ID(status_id NUMBER, p_cursor OUT cursor_usuario);
     
-    -- Procedimiento para mostrar todos los servicios con descripciï¿½n que contiene un tï¿½rmino
+    -- Procedimiento para mostrar todos los servicios con descripciÃ¯Â¿Â½n que contiene un tÃ¯Â¿Â½rmino
     PROCEDURE CURSOR_SERVICIOS_DESCRIPCION(term VARCHAR2, p_cursor OUT cursor_servicio);
 END PAQUETE_CURSORES;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_CURSORES AS
-    -- Procedimiento para mostrar todos los usuarios usando un cursor explï¿½cito
+    -- Procedimiento para mostrar todos los usuarios usando un cursor explÃ¯Â¿Â½cito
     PROCEDURE CURSOR_USUARIOS(p_cursor OUT cursor_usuario) AS
     BEGIN
         OPEN p_cursor FOR
@@ -1532,7 +1539,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_CURSORES AS
         WHERE COST < cost_limit;
     END CURSOR_SERVICIO_COSTO_ID;
     
-    -- Procedimiento para mostrar los usuarios que tienen un estado especï¿½fico
+    -- Procedimiento para mostrar los usuarios que tienen un estado especÃ¯Â¿Â½fico
     PROCEDURE CURSOR_STATUS_ID(status_id NUMBER, p_cursor OUT cursor_usuario) AS
     BEGIN
         OPEN p_cursor FOR
@@ -1540,7 +1547,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_CURSORES AS
         WHERE STATUS = status_id;
     END CURSOR_STATUS_ID;
     
-    -- Procedimiento para mostrar todos los servicios con descripciï¿½n que contiene un tï¿½rmino
+    -- Procedimiento para mostrar todos los servicios con descripciÃ¯Â¿Â½n que contiene un tÃ¯Â¿Â½rmino
     PROCEDURE CURSOR_SERVICIOS_DESCRIPCION(term VARCHAR2, p_cursor OUT cursor_servicio) AS
     BEGIN
         OPEN p_cursor FOR
@@ -1591,7 +1598,7 @@ AFTER DELETE ON DESTINATIONS
 FOR EACH ROW
 BEGIN
     INSERT INTO DESTINATION_DELETE_AUDIT (DESTINATION_ID, TITLE, DESCRIPTION, START_DATE, END_DATE, PRICE, EVENT_TYPE, EVENT_DATE)
-    VALUES (:OLD.ID_DESTINATION, :OLD.TITLE, :OLD.DESCRIPTION, :OLD.START_DATE, :OLD.END_DATE, :OLD.PRICE, 'EliminaciÃ³n', SYSDATE);
+    VALUES (:OLD.ID_DESTINATION, :OLD.TITLE, :OLD.DESCRIPTION, :OLD.START_DATE, :OLD.END_DATE, :OLD.PRICE, 'EliminaciÃƒÂ³n', SYSDATE);
 END;
 
 
@@ -1611,10 +1618,10 @@ FOR EACH ROW
 BEGIN
     IF UPDATING THEN
         INSERT INTO GUIDE_AUDIT (GUIDE_ID, EVENT_TYPE, EVENT_DATE)
-        VALUES (:OLD.ID_GUIDE, 'ActualizaciÃ³n', SYSDATE);
+        VALUES (:OLD.ID_GUIDE, 'ActualizaciÃƒÂ³n', SYSDATE);
     ELSE
         INSERT INTO GUIDE_AUDIT (GUIDE_ID, EVENT_TYPE, EVENT_DATE)
-        VALUES (:OLD.ID_GUIDE, 'EliminaciÃ³n', SYSDATE);
+        VALUES (:OLD.ID_GUIDE, 'EliminaciÃƒÂ³n', SYSDATE);
     END IF;
 END;
 
