@@ -17,36 +17,7 @@ function MostrarHeader()
     echo '<nav>
     <div class="nav-container">
       <div class="main-info-container">
-      <a class="nav-link Dropdown" aria-current="page" href="../Views/home.php">
         <img class="logo-img" src="../Views/Assets/imgs/logo.png" alt="" />
-        </a>
-      </div>
-      <div class="data-container">
-        <div class="servicios">
-          <a class="nav-link Dropdown" aria-current="page" href="../Views/servicios.php">
-            <h5>SERVICIOS</h5>
-          </a>
-        </div>
-        <div class="servicios">
-        <a class="nav-link Dropdown" aria-current="page" href="../Views/Viajes.php">
-          <h5>PAQUETES DE VIAJE</h5>
-          </a>
-        </div>
-        <div class="servicios">
-        <a class="nav-link Dropdown" aria-current="page" href="../Views/blog.php">
-          <h5>BLOG</h5>
-          </a>
-        </div>
-        <div class="servicios">
-        <a class="nav-link Dropdown" aria-current="page" href="../Views/destinos.php">
-          <h5>BUSCADOR VUELOS</h5>
-          </a>
-        </div>
-        <div class="servicios">
-        <a class="nav-link Dropdown" aria-current="page" href="../Views/perfil.php">
-        <h5>PERFIL</h5>
-        </a>
-         </div>
       </div>
     </div>
   </nav>

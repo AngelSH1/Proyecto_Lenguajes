@@ -22,4 +22,23 @@
     }
     }
 
+    function ValidarSesion($Correo, $Contrasenna)
+    {
+        try 
+        {
+            $enlace = OpenBD();
+            $sentencia = oci_parse($enlace, 'BEGIN ValidarSesion(:EMAIL, :PASSWORD, :RESULTADO); END;');
+            oci_bind_by_name($sentencia, ':EMAIL', $Correo);
+            oci_bind_by_name($sentencia, ':PASSWORD', $Contrasenna);
+            oci_bind_by_name($sentencia, ':RESULTADO', $resultado, 1); // El tercer parámetro 1 indica que es un parámetro de salida
+            oci_execute ($sentencia);
+            CloseBD($enlace);
+    
+            return $resultado;
+        }
+        catch(Exception $e){
+            return false; 
+        }
+    }
+
     ?>
