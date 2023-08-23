@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Editar Post</title>
+    <title>Editar Blog</title>
     <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/post.css">
     <?php MostrarHead(); ?>
 </head>
@@ -26,7 +26,9 @@ MostrarHeader();
     <div class="left-sidebar">
         <ul>
             <li><a href="../Views/blog.php">Ver Blog</a></li>
-            <li><a href="../Views/adminblog.php">Administrar Post</a></li>
+            <li><a href="../Views/adminblog.php">Administrar Blog</a></li>
+            <li><a href="../Views/destinos.php">Ver Destinos</a></li>
+            <li><a href="../Views/adminDestinos.php">Administrar Destinos</a></li>
         </ul>
     </div>
 
@@ -34,7 +36,7 @@ MostrarHeader();
     <div class="admin-content">
         <div class="content">
             <div class="post-form-container"></div>
-            <h1>Editar Post</h1>
+            <h1>Editar Blog</h1>
             <form action="prueba.php" method="post"> <!-- Cambia la acción al script que manejará la actualización -->
                 <input type="hidden" name="id" value="<?php echo $post['ID_BLOG']; ?>">
                 <label for="ID">ID:</label>
@@ -45,7 +47,7 @@ MostrarHeader();
                 <input type="text" id="titulo" name="titulo" value="<?php echo $post['TITLE']; ?>" required> <br>
 
                 <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required><?php echo $post['DESCRIPTION']->load(); ?></textarea><br>
+                <textarea id="mensaje" name="mensaje" required><?php echo $post['DESCRIPTION']; ?></textarea><br>
                 
                 <label for="Destino">Destino:</label>
                 <input type="text" id="Destino" name="Destino" value="<?php echo $post['ID_DESTINATION']; ?>" required> <br>

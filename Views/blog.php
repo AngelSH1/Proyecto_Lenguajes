@@ -10,7 +10,7 @@ $datoblog = $pblog->blogprincipal();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Blog</title>
+<title>BLOG</title>
     <?php MostrarHead(); ?>
     <link rel="stylesheet" href="../Views/Assets/css/estilos.css">
 </head>
@@ -33,13 +33,15 @@ $datoblog = $pblog->blogprincipal();
             <p>Somos una compañia familiar apasionada por los viajes</p>
         </div>
     </div>
-
+    <div class="header">
+        <h1>BLOG</h1>
+    </div>
     <div class="grid-container">
       <?php if (!empty($pblog)): ?>
           <?php foreach ($datoblog as $entry): ?>
               <div class="grid-item">
                   <div class="entry-title"><?php echo "" . $entry['TITLE'] . "<br>";?></div>
-                  <div class="entry-description"><?php echo "Descripción: " . $entry['DESCRIPTION']->load() . "<br>";?></div>
+                  <div class="entry-description"><?php echo "Descripción: " . $entry['DESCRIPTION']. "<br>";?></div>
                   <div class="entry-destination"><?php echo "Destino: " . $entry['DESTINATION_TITLE'] . "<br><br>";?></div>
               </div>
           <?php endforeach; ?>

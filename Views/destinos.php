@@ -16,15 +16,20 @@ $datoblog = $pblog->destinosprincipal();
 MostrarHeader();
 ?>
 <body class=>
-    <div class="header">
-        <h1>DESTINOS</h1>
+    <div class="container-cover">
+        <div class="container-info-cover">
+            <div class="header">
+                <h1>DESTINOS</h1>
+            </div>
+        </div>
     </div>
+
     <div class="grid-container">
       <?php if (!empty($pblog)): ?>
           <?php foreach ($datoblog as $entry): ?>
               <div class="grid-item">
                   <div class="entry-title"><?php echo "" . $entry['TITLE'] . "<br>";?></div>
-                  <div class="entry-description"><?php echo "Descripción: " . $entry['DESCRIPTION']->load() . "<br>";?></div>
+                  <div class="entry-description"><?php echo "Descripción: " . $entry['DESCRIPTION'] . "<br>";?></div>
                   <div class="entry-startdate"><?php echo "Salida: " . $entry['START_DATE'] . "<br><br>";?></div>
                   <div class="entry-enddate"><?php echo "Llegada: " . $entry['END_DATE'] . "<br><br>";?></div>
                   <div class="entry-spaces"><?php echo "Espacios: " . $entry['SPACES'] . "<br><br>";?></div>
