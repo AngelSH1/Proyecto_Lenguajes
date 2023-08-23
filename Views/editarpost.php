@@ -26,7 +26,9 @@ MostrarHeader();
     <div class="left-sidebar">
         <ul>
             <li><a href="../Views/blog.php">Ver Blog</a></li>
-            <li><a href="../Views/adminblog.php">Administrar Post</a></li>
+            <li><a href="../Views/adminblog.php">Administrar Blog</a></li>
+            <li><a href="../Views/destinos.php">Ver Destinos</a></li>
+            <li><a href="../Views/adminDestinos.php">Administrar Destinos</a></li>
         </ul>
     </div>
 
@@ -45,7 +47,7 @@ MostrarHeader();
                 <input type="text" id="titulo" name="titulo" value="<?php echo $post['TITLE']; ?>" required> <br>
 
                 <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required><?php echo $post['DESCRIPTION']->load(); ?></textarea><br>
+                <textarea id="mensaje" name="mensaje" required><?php echo $post['DESCRIPTION']; ?></textarea><br>
                 
                 <label for="Destino">Destino:</label>
                 <input type="text" id="Destino" name="Destino" value="<?php echo $post['ID_DESTINATION']; ?>" required> <br>

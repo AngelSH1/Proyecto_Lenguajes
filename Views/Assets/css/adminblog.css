@@ -24,6 +24,8 @@
     text-align: center;
     color:aliceblue;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
     
 }
 .admin-wrapper .left-sidebar ul li a:hover{
@@ -59,13 +61,12 @@ table{
     width: 100%;
     border-collapse: collapse;
     font-size: 1.1rem;
-    
     border-bottom: 2px solid #d3d3d3;
 }
 th{
     padding: 15px;
     text-align: center;
-    border-bottom: 2px solid #d3d3d3!important;
+    border-bottom: 2px solid #000000!important;
 }
 td{
     padding: 15px;
@@ -73,23 +74,25 @@ td{
     border-bottom: 2px solid #d3d3d3!important;
 }
 .edit{
-    display: inline-block;
-    padding: 2px 5px;
+    padding: 10px 20px;
     background-color: #047c85;
     color: white;
-    text-decoration: none;
     border: none;
+    text-decoration: none;
+    border-radius: 5px;
     cursor: pointer;
-    margin-right: 12px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
 }
 .delete{
-    display: inline-block;
-    padding: 2px 5px;
+    padding: 10px 20px;
     background-color: #047c85;
     color: white;
-    text-decoration: none;
     border: none;
+    text-decoration: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 .edit:hover, .delete:hover {
     background-color: #234a57;
