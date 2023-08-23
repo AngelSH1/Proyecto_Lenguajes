@@ -38,11 +38,6 @@ include_once "layout.php";
           <label for="mensaje">Mensaje:</label>
           <textarea id="mensaje" name="mensaje" placeholder="Ingrese el mensaje del post" required></textarea><br>
 
-          <label for="imagen">Imagen:</label>
-          <label for="imagen" class="custom-file-upload my-custom-class">Seleccionar imagen</label><br>
-          <input type="file" id="imagen" name="imagen">
-
-
           <label for="lugar">Destino:</label>
           <input type="text" id="lugar" name="lugar" placeholder="Ingrese el lugar" required><br>
 
