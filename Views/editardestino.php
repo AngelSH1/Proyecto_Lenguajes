@@ -47,12 +47,23 @@ MostrarHeader();
 
                 <label for="description">Descripción:</label>
                 <textarea id="description" name="description" required><?php echo $post['DESCRIPTION']; ?></textarea><br><br>
-
+                <?php
+                    $fechainicio = $post['START_DATE']; 
+                    $fechafin = $post['END_DATE']; 
+                    $dateObj = date_create_from_format('d/m/y', $fechainicio);
+                    $dateObj2 = date_create_from_format('d/m/y', $fechafin);
+                    if ($dateObj) {
+                        $formattedDateinicio = $dateObj->format('Y-m-d');
+                        $formattedDatefin = $dateObj2->format('Y-m-d');
+                    } else {
+                        echo "Fecha inválida";
+                    }
+                ?>
                 <label for="start_date">Fecha de inicio:</label>
-                <input type="date" id="start_date" name="start_date" value="<?php echo date('Y-m-d', strtotime($post['START_DATE'])); ?>" required><br><br>
-
+                <input type="date" id="start_date" name="start_date" value="<?php echo $formattedDateinicio; ?>" required><br><br>
+                
                 <label for="end_date">Fecha de fin:</label>
-                <input type="date" id="end_date" name="end_date" value="<?php echo date('Y-m-d', strtotime($post['END_DATE'])); ?>" required><br><br>
+                <input type="date" id="end_date" name="end_date" value="<?php echo $formattedDatefin; ?>" required><br><br>
 
                 <label for="spaces">Espacios:</label>
                 <input type="text" id="spaces" name="spaces" value="<?php echo $post['SPACES']; ?>"required><br><br>

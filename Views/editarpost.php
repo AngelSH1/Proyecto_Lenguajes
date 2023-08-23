@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Editar Post</title>
+    <title>Editar Blog</title>
     <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/post.css">
     <?php MostrarHead(); ?>
 </head>
@@ -36,7 +36,7 @@ MostrarHeader();
     <div class="admin-content">
         <div class="content">
             <div class="post-form-container"></div>
-            <h1>Editar Post</h1>
+            <h1>Editar Blog</h1>
             <form action="prueba.php" method="post"> <!-- Cambia la acción al script que manejará la actualización -->
                 <input type="hidden" name="id" value="<?php echo $post['ID_BLOG']; ?>">
                 <label for="ID">ID:</label>
