@@ -94,7 +94,7 @@ CONSTRAINT ID_DESTINATION PRIMARY KEY (ID_DESTINATION),
 FOREIGN KEY (GUIDE) REFERENCES GUIDES (ID_GUIDE)
 );
 
--
+
 
 ---------------------------------------------------------GUIDES------------------------------------------------------------------
 -------ALMACENA LA INFORMACION DEL GUIA QUE ESTARA ACOMPAÑANDO AL GRUPO EN EL VIAJE
@@ -163,7 +163,6 @@ CONSTRAINT BLOG_PK PRIMARY KEY (ID_BLOG),
 FOREIGN KEY (ID_USER) REFERENCES USERS (ID_USER),
 FOREIGN KEY (ID_DESTINATION) REFERENCES DESTINATIONS (ID_DESTINATION)
 );
-
 
 ---------------------------------------------------------IDIOMASXGUIA------------------------------------------------------------------
 
