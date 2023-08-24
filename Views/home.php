@@ -15,7 +15,7 @@
     <?php 
         MostrarHeader();
     ?>
-    <div class=" contenedor">
+    <div class="contenedor">
         <img class="imgcrr" src="../Views/Assets/imgs/img1.avif">
 
         <div class="price-overlay">
