@@ -922,20 +922,17 @@ CREATE OR REPLACE PACKAGE PAQUETE_USER AS
     
     -- Procedure para ver los detalles de un usuario por su ID
     PROCEDURE VER_USER_ID (
-        id_user NUMBER,
+        pId_user NUMBER,
         cursor OUT SYS_REFCURSOR
     );
     
     -- Procedure para actualizar los detalles de un usuario por su ID
-    PROCEDURE ACTULIZAR_USER (
-        id_user NUMBER,
-        name VARCHAR2,
-        last_name VARCHAR2,
-        email VARCHAR2,
-        phone VARCHAR2,
-        rol NUMBER,
-        password VARCHAR2,
-        status NUMBER
+    PROCEDURE ACTUALIZAR_USER (
+        pId_user NUMBER,
+        pName VARCHAR2,
+        pLast_name VARCHAR2,
+        pEmail VARCHAR2,
+        pPhone VARCHAR2
     );
 END PAQUETE_USER;
 
@@ -976,36 +973,31 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_USER AS
     
     -- Procedure para ver los detalles de un usuario por su ID
     PROCEDURE VER_USER_ID (
-        id_user NUMBER,
+        pId_user NUMBER,
         cursor OUT SYS_REFCURSOR
     ) AS
     BEGIN
-        OPEN cursor FOR SELECT * FROM USERS WHERE ID_USER = id_user;
+        OPEN cursor FOR SELECT * FROM USERS WHERE ID_USER = pId_user;
     END VER_USER_ID;
     
     -- Procedure para actualizar los detalles de un usuario por su ID
-    PROCEDURE ACTULIZAR_USER (
-        id_user NUMBER,
-        name VARCHAR2,
-        last_name VARCHAR2,
-        email VARCHAR2,
-        phone VARCHAR2,
-        rol NUMBER,
-        password VARCHAR2,
-        status NUMBER
+    PROCEDURE ACTUALIZAR_USER (
+        pId_user NUMBER,
+        pName VARCHAR2,
+        pLast_name VARCHAR2,
+        pEmail VARCHAR2,
+        pPhone VARCHAR2
     ) AS
     BEGIN
         UPDATE USERS
-        SET NAME = name,
-            LAST_NAME = last_name,
-            EMAIL = email,
-            PHONE = phone,
-            ROL = rol,
-            PASSWORD = password,
-            STATUS = status
-        WHERE ID_USER = id_user;
+        SET NAME = pName,
+            LAST_NAME = pLast_name,
+            EMAIL = pEmail,
+            PHONE = pPhone
+        WHERE ID_USER = pId_user;
+        
         COMMIT;
-    END ACTULIZAR_USER;
+    END ACTUALIZAR_USER;
 END PAQUETE_USER;
 
 ---PAQUETE SERVICIOS ***************************************************************************

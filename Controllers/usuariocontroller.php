@@ -26,14 +26,11 @@
     
             $Correo = $_POST["txtCorreo"];
             $Contrasenna = $_POST["txtContrasenna"];
-        
+  
             $respuesta = ValidarSesion($Correo, $Contrasenna);
-        
-            if($respuesta == 1)
-            {   
-                // Sesión válida, establece las variables de sesión y redirecciona
-                $_SESSION["IdUsuario"] = $Correo;  // Cambia esto según tus necesidades
-                $_SESSION["NombreUsuario"] = $Contrasenna;  // Cambia esto según tus necesidades
+
+            if($respuesta)
+            {
                 header("location: ../Views/home.php");
             }
             else
@@ -44,6 +41,39 @@
         }
         catch(Exception $error)
         {
-            // Maneja la excepción según sea necesario
+            $_POST["MsjPantalla"] = $error;// Maneja la excepción según sea necesario
+        }
+    }
+
+    function ConsultarUsuario()
+    {
+        return ConsultaUsuario($_SESSION["IdUsuario"]);
+    }
+
+    if(isset($_POST["btnActualizar"]))
+    {
+        try{
+            $Nombre = $_POST["txtNombre"];
+            $Apellido = $_POST["txtApellido"];
+            $Telefono = $_POST["txtTelefono"];
+            $Email = $_POST["txtEmail"];
+  
+            $respuesta = ActualizarUsuario($_SESSION["IdUsuario"],$Nombre, $Apellido, $Telefono,$Email);
+
+            if($respuesta)
+            {
+                $_SESSION["NombreUsuario"] = $Nombre . ' ' .  $Apellido;  
+                $_POST["MsjPantalla"] = "Se ha actualizado el perfil del usuario";
+            }
+            else
+            {   
+                $_POST["MsjPantalla"] = "Ocurrio un error al actualizar el perfil de usuario";
+            }
+            
+        }
+        catch(Exception $error)
+        {
+            echo 'error';
+            $_POST["MsjPantalla"] = $error;// Maneja la excepción según sea necesario
         }
     }
