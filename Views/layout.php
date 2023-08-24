@@ -1,4 +1,8 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
+      session_start();
+  }
+
 function MostrarHead()
 {
     echo' <meta charset="UTF-8">
@@ -23,6 +27,9 @@ function MostrarHeader()
         </a>
       </div>
       <div class="data-container">
+        <div class="servicios">        
+          <h5>'.$_SESSION["NombreUsuario"].'</h5>
+        </div>
         <div class="servicios">
           <a class="nav-link Dropdown" aria-current="page" href="../Views/servicios.php">
             <h5>SERVICIOS</h5>
@@ -30,7 +37,6 @@ function MostrarHeader()
         </div>
         <div class="servicios">
         <a class="nav-link Dropdown" aria-current="page" href="../Views/destinos.php">
-        <a class="nav-link Dropdown" aria-current="page" href="../Views/Viajes.php">
           <h5>PAQUETES DE VIAJE</h5>
           </a>
         </div>
