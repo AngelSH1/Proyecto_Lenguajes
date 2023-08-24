@@ -15,24 +15,19 @@ VALUES (pID_USER_SOLICITUD, pFULLNAME, pEMAIL, pPHONE, pSERVICIO, pMENSAJE);
 END;
 
 
-CREATE OR REPLACE PROCEDURE ValidarSesion (
+create or replace PROCEDURE ValidarSesion (
   pCorreo IN VARCHAR2,
   pContrasenna IN VARCHAR2,
-  pResultado OUT NUMBER
-)
-AS
-  vID_USER USERS.ID_USER%TYPE;
-BEGIN
-  SELECT ID_USER
-  INTO vID_USER
-  FROM USERS
-  WHERE EMAIL = pCorreo
-  AND PASSWORD = pContrasenna;
-
-  pResultado := 1;
-  
-EXCEPTION
-  WHEN NO_DATA_FOUND THEN
-    pResultado := 0;
-END;
+  p_cursor OUT SYS_REFCURSOR
+    ) AS
+    BEGIN
+        OPEN p_cursor FOR SELECT * FROM USERS 
+                        WHERE EMAIL = pCorreo
+                        AND PASSWORD = pContrasenna;
+    END ValidarSesion;
 /
+
+
+
+
+

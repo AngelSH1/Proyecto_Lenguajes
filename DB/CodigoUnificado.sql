@@ -453,7 +453,6 @@ MENSAJE VARCHAR2(100)
 );
 
 
-
 CREATE OR REPLACE PACKAGE PAQUETE_SOLICITUD AS
     -- Procedure para agregar una solicitud
     PROCEDURE RegistrarFormulario(
@@ -481,8 +480,6 @@ CREATE OR REPLACE PACKAGE PAQUETE_SOLICITUD AS
         p_id_solicitud IN NUMBER
     );
     
-    -- Function para mostrar las solicitudes (usando un cursor)
-    FUNCTION MOSTRAR_SOLICITUDES_VISTA RETURN SYS_REFCURSOR;
 END PAQUETE_SOLICITUD;
 
 
@@ -503,6 +500,9 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_SOLICITUD AS
         COMMIT;
     END RegistrarFormulario;  -- Agregar punto y coma aquí
 
+
+
+---*****AGREGAR***!!!
     -- Procedure para editar una solicitud
     PROCEDURE EDITAR_SOLICITUD(
         p_id_solicitud IN NUMBER,
@@ -533,80 +533,15 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_SOLICITUD AS
         DELETE FROM SOLICITUD WHERE ID_SOLICITUD = p_id_solicitud;
         COMMIT;
     END ELIMINAR_SOLICITUD;
-
-    FUNCTION MOSTRAR_SOLICITUDES_VISTA RETURN SYS_REFCURSOR AS
-        c SYS_REFCURSOR;
-    BEGIN
-        OPEN c FOR SELECT * FROM SOLICITUD;
-        RETURN c;
-    END MOSTRAR_SOLICITUDES_VISTA;
 END PAQUETE_SOLICITUD;
 /
 
-
----****** pruebas!!!*****
+---*****AGREGAR***!!!
+CREATE OR REPLACE PROCEDURE VER_SOLICITUD(V_cursor OUT SYS_REFCURSOR) AS
 BEGIN
-    PAQUETE_SOLICITUD.RegistrarFormulario(
-        p_id_user_solicitud => 5682,
-        p_fullname => 'Marie Franklin',
-        p_email => 'mefrank@example.com',
-        p_phone => '123456789',
-        p_servicio => 'Servicio 3',
-        p_mensaje => 'Este es un mensaje de solicitud'
-    );
-    COMMIT;
+    OPEN V_cursor FOR
+    SELECT * FROM SOLICITUD;
 END;
-/
-
-BEGIN
-    PAQUETE_SOLICITUD.EDITAR_SOLICITUD(
-        p_id_solicitud => 3,  -- ID de la solicitud que deseas editar
-        p_id_user_solicitud => 5682,
-        p_fullname => 'Marie Franklin (Modificado)',
-        p_email => 'mefrank@example.com',
-        p_phone => '987654321',
-        p_servicio => 'Servicio 4',
-        p_mensaje => 'Este es un mensaje modificado de solicitud'
-    );
-    COMMIT;
-END;
-/
-
-BEGIN
-    PAQUETE_SOLICITUD.ELIMINAR_SOLICITUD(
-        p_id_solicitud => 2  -- ID de la solicitud que deseas eliminar
-    );
-    COMMIT;
-END;
-/
-
-
-SET SERVEROUTPUT ON;
-DECLARE
-    v_id_solicitud NUMBER;
-    v_id_user_solicitud NUMBER;
-    v_fullname VARCHAR2(50);
-    v_email VARCHAR2(50);
-    v_phone VARCHAR2(50);
-    v_servicio VARCHAR2(50);
-    v_mensaje VARCHAR2(100);
-BEGIN
-    FOR solicitud IN (SELECT * FROM VISTA_SOLICITUDES) LOOP
-        v_id_solicitud := solicitud.ID_SOLICITUD;
-        v_id_user_solicitud := solicitud.ID_USER_SOLICITUD;
-        v_fullname := solicitud.FULLNAME;
-        v_email := solicitud.EMAIL;
-        v_phone := solicitud.PHONE;
-        v_servicio := solicitud.SERVICIO;
-        v_mensaje := solicitud.MENSAJE;
-        
-        DBMS_OUTPUT.PUT_LINE('ID Solicitud: ' || v_id_solicitud || ', Nombre: ' || v_fullname || ', Email: ' || v_email);
-    END LOOP;
-END;
-/
-
-SELECT * FROM SOLICITUD;
-
 
 --*************************************************
 
@@ -985,20 +920,17 @@ CREATE OR REPLACE PACKAGE PAQUETE_USER AS
     
     -- Procedure para ver los detalles de un usuario por su ID
     PROCEDURE VER_USER_ID (
-        id_user NUMBER,
+        pId_user NUMBER,
         cursor OUT SYS_REFCURSOR
     );
     
     -- Procedure para actualizar los detalles de un usuario por su ID
-    PROCEDURE ACTULIZAR_USER (
-        id_user NUMBER,
-        name VARCHAR2,
-        last_name VARCHAR2,
-        email VARCHAR2,
-        phone VARCHAR2,
-        rol NUMBER,
-        password VARCHAR2,
-        status NUMBER
+    PROCEDURE ACTUALIZAR_USER (
+        pId_user NUMBER,
+        pName VARCHAR2,
+        pLast_name VARCHAR2,
+        pEmail VARCHAR2,
+        pPhone VARCHAR2
     );
 END PAQUETE_USER;
 
@@ -1039,36 +971,31 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_USER AS
     
     -- Procedure para ver los detalles de un usuario por su ID
     PROCEDURE VER_USER_ID (
-        id_user NUMBER,
+        pId_user NUMBER,
         cursor OUT SYS_REFCURSOR
     ) AS
     BEGIN
-        OPEN cursor FOR SELECT * FROM USERS WHERE ID_USER = id_user;
+        OPEN cursor FOR SELECT * FROM USERS WHERE ID_USER = pId_user;
     END VER_USER_ID;
     
     -- Procedure para actualizar los detalles de un usuario por su ID
-    PROCEDURE ACTULIZAR_USER (
-        id_user NUMBER,
-        name VARCHAR2,
-        last_name VARCHAR2,
-        email VARCHAR2,
-        phone VARCHAR2,
-        rol NUMBER,
-        password VARCHAR2,
-        status NUMBER
+    PROCEDURE ACTUALIZAR_USER (
+        pId_user NUMBER,
+        pName VARCHAR2,
+        pLast_name VARCHAR2,
+        pEmail VARCHAR2,
+        pPhone VARCHAR2
     ) AS
     BEGIN
         UPDATE USERS
-        SET NAME = name,
-            LAST_NAME = last_name,
-            EMAIL = email,
-            PHONE = phone,
-            ROL = rol,
-            PASSWORD = password,
-            STATUS = status
-        WHERE ID_USER = id_user;
+        SET NAME = pName,
+            LAST_NAME = pLast_name,
+            EMAIL = pEmail,
+            PHONE = pPhone
+        WHERE ID_USER = pId_user;
+        
         COMMIT;
-    END ACTULIZAR_USER;
+    END ACTUALIZAR_USER;
 END PAQUETE_USER;
 
 ---PAQUETE SERVICIOS ***************************************************************************

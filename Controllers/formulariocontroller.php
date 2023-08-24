@@ -18,6 +18,7 @@
 
         if($respuesta == true)
         {
-            header("location: ../Views/home.html");
+            header("location: ../Views/home.php");
         }
+
     }
