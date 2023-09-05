@@ -97,3 +97,48 @@ td{
 .edit:hover, .delete:hover {
     background-color: #234a57;
   }
+  button {
+    border: 0;
+    background-image: linear-gradient(
+        150deg,
+        #00f7ff,
+        rgb(14, 177, 174),
+        #027788
+    );
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: .3s;
+    text-decoration: none;
+}
+button span{
+    background-color: #234a57;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: .3s;
+    text-decoration: none;
+
+}
+button:hover span {
+    background: none;
+    text-decoration: none;
+}
+button:active{
+    transform: scale(0.9);
+
+}
+.button-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    margin-left: 78px;
+  }
+  .custom-button {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  
+  

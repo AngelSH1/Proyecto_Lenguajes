@@ -82,12 +82,10 @@ class Modeloblog{
         oci_bind_by_name($stmt, ":result", $result, -1, OCI_B_CURSOR);
         oci_execute($stmt);
         oci_execute($result);
-
         $post = oci_fetch_assoc($result);
         oci_free_statement($stmt);
         oci_free_statement($result);
         CloseBD($conn);
-
         return $post;
     }
     public function actualizarPost($id, $titulo, $mensaje, $destino) {

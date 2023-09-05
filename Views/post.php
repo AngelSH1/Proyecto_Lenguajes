@@ -8,6 +8,7 @@ include_once "layout.php";
 <html>
 <head>
   <title>Crear un nuevo post</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="http://localhost/Proyecto_Lenguajes/Views/Assets/css/post.css">
   <?php MostrarHead(); ?>
 </head>

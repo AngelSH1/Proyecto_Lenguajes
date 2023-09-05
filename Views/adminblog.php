@@ -12,7 +12,6 @@ $datoblog = $pblog->blog();
 <title>Administracion De Blog</title>
 <?php MostrarHead(); ?>
 <link rel="stylesheet" href="http://localhost:/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
-<link rel="stylesheet" href="http://localhost:85/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
 </head>
 <body>
     <?php 
@@ -26,6 +25,7 @@ $datoblog = $pblog->blog();
                 <li><a href="../Views/post.php">Crear Blog</a></li>
                 <li><a href="../Views/destinos.php">Ver Destinos</a></li>
                 <li><a href="../Views/admindestinos.php">Administrar Destinos</a></li>
+                <button><span>Super Boton</span></button>
             </ul>
         </div>
         <!-- derecha-->
@@ -47,8 +47,8 @@ $datoblog = $pblog->blog();
                             <td><?php echo $value['ID_USER']; ?></td>
                             <td>
                                 <div class= "button-container">
-                                    <a class="edit" href="editarpost.php?id=editar&id=<?php echo $value['ID_BLOG']; ?>">EDITAR</a>
-                                    <a class="delete" href="prueba.php?m=eliminar&id=<?php echo $value['ID_BLOG']; ?>">ELIMINAR</a>
+                                    <button><span><a class="custom-button" href="editarpost.php?id=editar&id=<?php echo $value['ID_BLOG']; ?>">EDITAR</a></span></button>
+                                    <button><span><a class="custom-button" href="prueba.php?m=eliminar&id=<?php echo $value['ID_BLOG']; ?>">ELIMINAR</a></span></button>
                                 </div>
                             </td>
                         </tr>

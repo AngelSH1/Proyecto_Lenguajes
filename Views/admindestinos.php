@@ -10,7 +10,6 @@ $datoblog = $pblog->destinos();
 <title>Administracion De Destinos</title>
 <?php MostrarHead(); ?>
 <link rel="stylesheet" href="http://localhost:/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
-<link rel="stylesheet" href="http://localhost:85/Proyecto_Lenguajes/Views/Assets/css/adminblog.css">
 </head>
 <body>
     <?php 
@@ -45,8 +44,14 @@ $datoblog = $pblog->destinos();
                             <td><?php echo $value['TITLE']; ?></td>
                             <td><?php echo $value['SPACES']; ?></td>
                             <td>
-                                <a class="edit" href="editardestino.php?id=editar&id=<?php echo $value['ID_DESTINATION']; ?>">EDITAR</a>
-                                <a class="delete" href="prueba.php?n=eliminarDestino&id=<?php echo $value['ID_DESTINATION']; ?>">ELIMINAR</a>
+                            <div class= "button-container">
+                                <button><span>
+                                <a class="custom-button" href="editardestino.php?id=editar&id=<?php echo $value['ID_DESTINATION']; ?>">EDITAR</a>
+                                </span></button>
+                                <button><span>
+                                <a class="custom-button" href="prueba.php?n=eliminarDestino&id=<?php echo $value['ID_DESTINATION']; ?>">ELIMINAR</a>
+                                </span></button>
+                            </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
